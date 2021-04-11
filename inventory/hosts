@@ -24,7 +24,8 @@ xr_core
 
 
 [xe:children]
-xe_dist
+#xe_dist
+xe_switch
 
 [temp:children]
 xe_internet
@@ -43,7 +44,7 @@ xe_switch
 
 
 [nx:children]
-nx_switch
+#nx_switch
 
 [nx_switch]
 10.10.20.177 username=cisco password=cisco
