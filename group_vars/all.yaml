@@ -1,0 +1,15 @@
+ansible_connection: network_cli
+ansible_user: "{{username}}"
+ansible_ssh_pass: "{{password}}"
+
+checkmode:  no
+
+domain_name: virl.info 
+domain_search: "{{domain_name}}"
+
+ntp_servers: 
+  - 8.8.8.8
+  - 1.1.1.1
+log_servers:
+  - 1.1.1.1
+  - 1.1.1.2

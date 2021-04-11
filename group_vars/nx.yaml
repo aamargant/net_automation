@@ -1,0 +1,7 @@
+ansible_network_os: nxos
+
+features:
+  - nxapi
+  - restconf
+  - netconf
+
