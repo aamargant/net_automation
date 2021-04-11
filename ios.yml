@@ -5,7 +5,7 @@
 ############################################################
 
 - name: Task to see config
-  hosts: lab
+  hosts: xe_switch
   tasks:
    - name: Gather only the config and default facts
      cisco.ios.ios_facts:
