@@ -13,7 +13,7 @@ core4
 [core2]
 10.10.20.178 username=cisco password=cisco
 
-[core2]
+[core3]
 10.10.20.179 username=cisco password=cisco
 
 [core4]

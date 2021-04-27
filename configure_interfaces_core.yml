@@ -1,7 +1,7 @@
 ---
 
 #################################
-### Configure core interfaces ###
+### Configure core1 interfaces ###
 #################################
 
 - name: Task to see config
@@ -14,12 +14,15 @@
       - name: Ethernet1/1
         description: Core1 to Core2 interface
         mode: layer3
+        duplex: full
       - name: Ethernet1/2
         description: Core1 to Core4 interface
         mode: layer3
+        duplex: full
       - name: Ethernet1/3
         description: Core1 to Core3 interface
         mode: layer3
+        duplex: full
 
   - name: Merge provided configuration with device configuration.
     cisco.nxos.nxos_l3_interfaces:
@@ -43,6 +46,62 @@
         enabled: true
       - name: Ethernet1/3
         enabled: true
+
+
+#################################
+### Configure core2 interfaces ###
+#################################
+
+- name: Task to see config
+  hosts: core2
+  tasks:
+
+  - name: Configure layer3 interfaces to core
+    cisco.nxos.nxos_interfaces:
+      config:
+      - name: Ethernet1/1
+        description: Core2 to Core1 interface
+        mode: layer3
+        duplex: full
+      - name: Ethernet1/2
+        description: Core2 to Core4 interface
+        mode: layer3
+        duplex: full
+      - name: Ethernet1/3
+        description: Core2 to Core3 interface
+        mode: layer3
+        duplex: full
+
+  - name: Merge provided configuration with device configuration.
+    cisco.nxos.nxos_l3_interfaces:
+      config:
+      - name: Ethernet1/1
+        ipv4:
+        - address: 10.0.1.4/24
+      - name: Ethernet1/2
+        ipv4:
+        - address: 10.0.1.5/24
+      - name: Ethernet1/3
+        ipv4:
+        - address: 10.0.1.6/24
+
+  - name: Bring up interfaces
+    cisco.nxos.nxos_interfaces:
+      config:
+      - name: Ethernet1/1
+        enabled: true
+      - name: Ethernet1/2
+        enabled: true
+      - name: Ethernet1/3
+        enabled: true
+
+
+
+
+
+
+
+
 
 
 
