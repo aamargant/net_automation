@@ -1,8 +1,20 @@
 [all:vars]
 ansible_python_interpreter="/usr/bin/env python"
 
-[nxos_switch]
+[core:children]
+core1
+core2
+core3
+core4
+
+[core1]
 10.10.20.177 username=cisco password=cisco
+
+[core2]
 10.10.20.178 username=cisco password=cisco
+
+[core2]
 10.10.20.179 username=cisco password=cisco
+
+[core4]
 10.10.20.180 username=cisco password=cisco
