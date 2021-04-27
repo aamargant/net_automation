@@ -1,14 +1,8 @@
 [all:vars]
 ansible_python_interpreter="/usr/bin/env python"
 
-[localhost]
-127.0.0.1 
-
-[xe_switch]
-#10.10.20.177 username=cisco password=cisco
-10.10.30.173 username=cisco password=cisco
-
-
 [nxos_switch]
 10.10.20.177 username=cisco password=cisco
-10.10.30.177 username=cisco password=cisco
+10.10.20.178 username=cisco password=cisco
+10.10.20.179 username=cisco password=cisco
+10.10.20.180 username=cisco password=cisco
