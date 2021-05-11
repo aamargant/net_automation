@@ -7,6 +7,22 @@ core2
 core3
 core4
 
+[distribution:children]
+dist1
+dist2
+dist3
+dist4
+
+[access:children]
+access1
+access2
+access5
+access6
+
+########
+# Core #
+########
+
 [core1]
 10.10.20.177 username=cisco password=cisco
 
@@ -18,3 +34,36 @@ core4
 
 [core4]
 10.10.20.180 username=cisco password=cisco
+
+################
+# Distribution #
+################
+
+[dist1]
+10.10.20.181 username=cisco password=cisco
+
+[dist2]
+10.10.20.182 username=cisco password=cisco
+
+[dist3]
+10.10.20.183 username=cisco password=cisco
+
+[dist4]
+10.10.20.184 username=cisco password=cisco
+
+##########
+# Access #
+##########
+
+[access1]
+10.10.20.193 username=cisco password=cisco
+
+[access2]
+10.10.20.194 username=cisco password=cisco
+
+[access3]
+10.10.20.195 username=cisco password=cisco
+
+[access4]
+10.10.20.196 username=cisco password=cisco
+
