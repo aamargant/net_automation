@@ -51,6 +51,31 @@ access6
 [dist4]
 10.10.20.184 username=cisco password=cisco
 
+[dist5]
+10.10.20.185 username=cisco password=cisco
+
+[dist6]
+10.10.20.186 username=cisco password=cisco
+
+[dist7]
+10.10.20.187 username=cisco password=cisco
+
+[dist8]
+10.10.20.188 username=cisco password=cisco
+
+[dist9]
+10.10.20.189 username=cisco password=cisco
+
+[dist10]
+10.10.20.190 username=cisco password=cisco
+
+[dist11]
+10.10.20.191 username=cisco password=cisco
+
+[dist11]
+10.10.20.192 username=cisco password=cisco
+
+
 ##########
 # Access #
 ##########
@@ -66,4 +91,52 @@ access6
 
 [access4]
 10.10.20.196 username=cisco password=cisco
+
+[access5]
+10.10.20.197 username=cisco password=cisco
+
+[access6]
+10.10.20.198 username=cisco password=cisco
+
+[access7]
+10.10.20.199 username=cisco password=cisco
+
+[access8]
+10.10.20.200 username=cisco password=cisco
+
+[access9]
+10.10.20.201 username=cisco password=cisco
+
+[access10]
+10.10.20.202 username=cisco password=cisco
+
+[access11]
+10.10.20.203 username=cisco password=cisco
+
+[access12]
+10.10.20.204 username=cisco password=cisco
+
+[access13]
+10.10.20.205 username=cisco password=cisco
+
+[access14]
+10.10.20.206 username=cisco password=cisco
+
+[access15]
+10.10.20.207 username=cisco password=cisco
+
+[access16]
+10.10.20.208 username=cisco password=cisco
+
+[access17]
+10.10.20.209 username=cisco password=cisco
+
+[access18]
+10.10.20.210 username=cisco password=cisco
+
+[access19]
+10.10.20.211 username=cisco password=cisco
+
+[access20]
+10.10.20.212 username=cisco password=cisco
 
