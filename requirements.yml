@@ -1,21 +1,12 @@
 ---
 collections:
-# With just the collection name
+# Colleccions ansible
   - name: cisco.ios
-    version: 0.0.2
-    source: https://galaxy.ansible.com
-  - name: cisco.asa
-    version: 0.0.1
+    version: 2.0.0
     source: https://galaxy.ansible.com
   - name: cisco.nxos
-    version: 0.0.2
+    version: 2.0.0
     source: https://galaxy.ansible.com
-  - name: cisco.iosxr
-    version: 0.0.2
-    source: https://galaxy.ansible.com
-#  - name: cisco.aci
-#    version: 0.0.6
-#    source: https://galaxy.ansible.com
 
 
 
