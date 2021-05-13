@@ -24,7 +24,36 @@
     nxos_feature:
       feature: interface-vlan    
       state: enabled
- 
+
+  - name: Configure trunk switchports
+    cisco.nxos.nxos_l2_interfaces:   
+      config:
+      - name: Ethernet1/3
+        mode: trunk  
+      - name: Ethernet1/4
+        mode: trunk
+      - name: Ethernet1/5
+        mode: trunk
+      - name: Ethernet1/6
+        mode: trunk 
+       
+
+  - name: Enable vlans
+    nxos_interface:
+      name: vlan 3
+      admin_state: up 
+      name: vlan 5
+      admin_state: up   
+      name: vlan 9
+      admin_state: up   
+      name: vlan 14
+      admin_state: up   
+      
+      
+- name: Configure individual vlans and hsrp on dist1
+  hosts: dist1
+  tasks:  
+            
   - name: Configure VLANs
     cisco.nxos.nxos_l3_interfaces:
       config:
@@ -34,26 +63,93 @@
       - name: vlan 5
         ipv4:
           - address: 192.168.5.2/24
-
-  - name: Configure HRSP 
+      - name: vlan 9
+        ipv4:
+          - address: 192.168.9.2/24
+      - name: vlan 14
+        ipv4:
+          - address: 192.168.14.2/24
+          
+  - name: Configure HRSP vlan 3
     cisco.nxos.nxos_hsrp:
       group: 3
       vip: 192.168.3.1
       priority: 120
-      interface: vlan10
+      interface: vlan 3
+      preempt: enabled
+      
+  - name: Configure HRSP vlan 5
+    cisco.nxos.nxos_hsrp:
+      group: 5
+      vip: 192.168.5.1
+      priority: 100
+      interface: vlan 5
       preempt: enabled
 
-  - name: Configure trunk switchports
-    cisco.nxos.nxos_l2_interfaces:   
+  - name: Configure HRSP vlan 9
+    cisco.nxos.nxos_hsrp:
+      group: 9
+      vip: 192.168.9.1
+      priority: 120
+      interface: vlan 9
+      preempt: enabled
+      
+  - name: Configure HRSP vlan 14
+    cisco.nxos.nxos_hsrp:
+      group: 14
+      vip: 192.168.14.1
+      priority: 100
+      interface: vlan 14
+      preempt: enabled
+      
+- name: Configure individual vlans and hsrp on dist2
+  hosts: dist2
+  tasks:  
+            
+  - name: Configure VLANs
+    cisco.nxos.nxos_l3_interfaces:
       config:
-      - name: Ethernet1/3
-        mode: trunk  
-      - name: Ethernet1/4
-        mode: trunk
+      - name: vlan 3
+        ipv4:
+          - address: 192.168.3.3/24
+      - name: vlan 5
+        ipv4:
+          - address: 192.168.5.3/24
+      - name: vlan 9
+        ipv4:
+          - address: 192.168.9.3/24
+      - name: vlan 14
+        ipv4:
+          - address: 192.168.14.3/24
+          
+  - name: Configure HRSP vlan 3
+    cisco.nxos.nxos_hsrp:
+      group: 3
+      vip: 192.168.3.1
+      priority: 100
+      interface: vlan 3
+      preempt: enabled
+      
+  - name: Configure HRSP vlan 5
+    cisco.nxos.nxos_hsrp:
+      group: 5
+      vip: 192.168.5.1
+      priority: 120
+      interface: vlan 5
+      preempt: enabled
 
-  - name: Enable vlans
-    nxos_interface:
-      name: vlan 3
-      admin_state: up 
-      name: vlan 5
-      admin_state: up                            
+  - name: Configure HRSP vlan 9
+    cisco.nxos.nxos_hsrp:
+      group: 9
+      vip: 192.168.9.1
+      priority: 100
+      interface: vlan 9
+      preempt: enabled
+      
+  - name: Configure HRSP vlan 14
+    cisco.nxos.nxos_hsrp:
+      group: 14
+      vip: 192.168.14.1
+      priority: 120
+      interface: vlan 14
+      preempt: enabled
