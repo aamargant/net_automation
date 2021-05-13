@@ -1,7 +1,7 @@
 ---
 
 - name: Configure distribution layer
-  hosts: distribution 
+  hosts: dist_spine_1 
   tasks:
 
   - name: Create VLANs
@@ -12,6 +12,12 @@
          state: active
        - name: vlan5
          vlan_id: 5
+         state: activ
+       - name: vlan9
+         vlan_id: 9
+         state: active
+       - name: vlan14
+         vlan_id: 14
          state: active
 
   - name: Enable interface-vlan
@@ -24,10 +30,18 @@
       config:
       - name: vlan 3
         ipv4:
-          - address: 192.168.3.1/24
+          - address: 192.168.3.2/24
       - name: vlan 5
         ipv4:
-          - address: 192.168.5.1/24
+          - address: 192.168.5.2/24
+
+  - name: Configure HRSP 
+    cisco.nxos.nxos_hsrp:
+      group: 3
+      vip: 192.168.3.1
+      priority: 120
+      interface: vlan10
+      preempt: enabled
 
   - name: Configure trunk switchports
     cisco.nxos.nxos_l2_interfaces:   

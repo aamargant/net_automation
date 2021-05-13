@@ -1,6 +1,10 @@
 [all:vars]
 ansible_python_interpreter="/usr/bin/env python"
 
+###############
+# Main Groups #
+###############
+
 [core:children]
 core1
 core2
@@ -8,16 +12,34 @@ core3
 core4
 
 [distribution:children]
-dist1
-#dist2
-#dist3
-#dist4
+dist_spine_1
+dist_spine_2
 
 [access:children]
+access_leaf_1
+access_leaf_2
+
+#############
+# Subgroups #
+#############
+
+[dist_spine_1]
+dist1
+dist2
+
+[access_leaf_1:children]
 access1
 access2
-#access5
-#access6
+
+[access_leaf_2:children]
+access3
+access4
+
+
+
+####################
+# Individual Hosts #
+####################
 
 ########
 # Core #
