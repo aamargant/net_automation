@@ -24,26 +24,29 @@
     nxos_feature:
       feature: interface-vlan    
       state: enabled
+      
+  - name: Enable HSRP
+    nxos_feature:
       feature: hsrp
       state: enabled
 
   - name: Enable vlan 3
-    nxos_interface:
+    cisco.nxos.nxos_interface:
       name: vlan 3
       admin_state: up
 
   - name: Enable vlan 5
-    nxos_interface: 
+    cisco.nxos.nxos_interface: 
       name: vlan 5
       admin_state: up
 
   - name: Enable vlan 9
-    nxos_interface:    
+    cisco.nxos.nxos_interface:    
       name: vlan 9
       admin_state: up
 
   - name: Enable vlan 14
-    nxos_interface:
+    cisco.nxos.nxos_interface:
       name: vlan 14
       admin_state: up
 
