@@ -1,0 +1,30 @@
+---
+
+- name: Configure distribution layer
+  hosts: distribution 
+  tasks:
+
+  - name: Create VLANs
+    cisco.nxos.nxos_vlans:
+      config:
+       - name: vlan3         
+         vlan_id: 3
+         state: active
+       - name: vlan5
+         vlan_id: 5
+         state: active
+
+  - name: Enable interface-vlan
+    nxos_feature:
+      feature: interface-vlan    
+      state: enabled
+ 
+  - name: Configure VLANs
+    cisco.nxos.nxos_l3_interfaces:
+      config:
+      - name: vlan 3
+        ipv4:
+          - address: 192.168.3.1/24
+      - name: vlan 5
+        ipv4:
+          - address: 192.168.5.1/24                
