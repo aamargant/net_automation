@@ -35,4 +35,13 @@
       - name: Ethernet1/3
         mode: trunk  
       - name: Ethernet1/4
-        mode: trunk                        
+        mode: trunk
+
+  - name: Enable vlans
+    cisco.nxos.nxos_interfaces:
+      config:
+      - name: vlan 3
+        enabled: true
+      - name: vlan 5
+        enabled: true
+                             
