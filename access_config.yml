@@ -1,0 +1,24 @@
+---
+
+- name: Task to see config
+  hosts: access 
+  tasks:
+
+  - name: Configure VLANs
+    ios_vlans:
+      config:
+       - name: vlan3
+         vlan_id: 3
+         state: active
+         shutdown: disabled
+       - name: vlan5
+         vlan_id: 5
+         state: active
+         shutdown: disabled
+
+  - name: Merge provided configuration with device configuration
+    cisco.ios.ios_l2_interfaces:
+      config:
+      - name: GigabitEthernet0/1
+        trunk:
+          encapsulation: dot1q

@@ -9,15 +9,15 @@ core4
 
 [distribution:children]
 dist1
-dist2
-dist3
-dist4
+#dist2
+#dist3
+#dist4
 
 [access:children]
 access1
 access2
-access5
-access6
+#access5
+#access6
 
 ########
 # Core #
