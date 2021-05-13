@@ -38,10 +38,8 @@
         mode: trunk
 
   - name: Enable vlans
-    cisco.nxos.nxos_interfaces:
-      config:
-      - name: vlan 3
-        enabled: true
-      - name: vlan 5
-        enabled: true
-                             
+    nxos_interface:
+      name: vlan 3
+      admin_state: up 
+      name: vlan 5
+      admin_state: up                            
