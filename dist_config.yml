@@ -58,7 +58,8 @@
         mode: trunk
       - name: Ethernet1/6
         mode: trunk 
- 
+      - name: Ethernet1/7
+        mode: trunk 
       
 - name: Configure individual vlans and hsrp on dist1
   hosts: dist1
