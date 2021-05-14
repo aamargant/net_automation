@@ -13,10 +13,13 @@ core4
 
 [distribution:children]
 dist_spine_1
+dist_spine_2
 
 [access:children]
 access_leaf_1
 access_leaf_2
+access_leaf_3
+access_leaf_4
 
 #############
 # Subgroups #
@@ -26,6 +29,10 @@ access_leaf_2
 dist1
 dist2
 
+[dist_spine_2:children]
+dist3
+dist4
+
 [access_leaf_1:children]
 access1
 access2
@@ -34,6 +41,13 @@ access2
 access3
 access4
 
+[access_leaf_3:children]
+access5
+access6
+
+[access_leaf_4:children]
+access7
+access8
 
 
 ####################
