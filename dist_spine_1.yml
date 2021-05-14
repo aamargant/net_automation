@@ -83,6 +83,12 @@
       - name: vlan 8
         ipv4:
           - address: 192.168.8.2/24
+      - name: Ethernet1/1
+        ipv4:
+          - address: 20.0.0.1/30
+      - name: Ethernet1/2
+        ipv4:
+          - address: 20.0.0.2/30
           
   - name: Configure HRSP vlan 2
     cisco.nxos.nxos_hsrp:
@@ -135,6 +141,12 @@
       - name: vlan 8
         ipv4:
           - address: 192.168.8.3/24
+      - name: Ethernet1/1
+        ipv4:
+          - address: 20.0.0.5/30
+      - name: Ethernet1/2
+        ipv4:
+          - address: 20.0.0.6/30
           
   - name: Configure HRSP vlan2
     cisco.nxos.nxos_hsrp:
