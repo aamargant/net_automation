@@ -1,0 +1,73 @@
+---
+
+- name: Configure Access Leaf 3
+  hosts: access_leaf_3
+  tasks:
+
+  - name: Create VLANs
+    ios_vlans:
+      config:
+       - name: vlan10
+         vlan_id: 10
+         state: active
+         shutdown: disabled
+       - name: vlan12
+         vlan_id: 12
+         state: active
+         shutdown: disabled
+
+  - name: Setting switchport mode turnk and access ports
+    cisco.ios.ios_l2_interfaces:
+      config:
+      - name: GigabitEthernet0/1
+        mode: trunk
+        trunk:
+          encapsulation: dot1q
+      - name: GigabitEthernet0/2
+        mode: trunk
+        trunk:
+          encapsulation: dot1q
+      - name: GigabitEthernet0/3
+        mode: access
+        access:
+          vlan: 10
+      - name: GigabitEthernet1/0
+        mode: access
+        access:
+          vlan: 12
+
+- name: Configure Access Leaf 4
+  hosts: access_leaf_4
+  tasks:
+
+  - name: Create VLANs
+    ios_vlans:
+      config:
+       - name: vlan14
+         vlan_id: 14
+         state: active
+         shutdown: disabled
+       - name: vlan16
+         vlan_id: 16
+         state: active
+         shutdown: disabled
+
+  - name: Setting switchport mode turnk and access ports 
+    cisco.ios.ios_l2_interfaces:
+      config:
+      - name: GigabitEthernet0/1
+        mode: trunk
+        trunk:
+          encapsulation: dot1q
+      - name: GigabitEthernet0/2
+        mode: trunk
+        trunk:
+          encapsulation: dot1q
+      - name: GigabitEthernet0/3
+        mode: access
+        access:
+          vlan: 14
+      - name: GigabitEthernet1/0
+        mode: access
+        access:
+          vlan: 16
