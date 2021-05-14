@@ -6,8 +6,7 @@ export LC_ALL
 
 git clone https://aamargant:Sp18Jv93@github.com/aamargant/cml_ansible.git
 
-cd cml_ansible
-echo ""
+cd cml_ansible/
 
 python3.6 -m venv venv
 source venv/bin/activate
