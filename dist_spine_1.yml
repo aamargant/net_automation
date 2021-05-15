@@ -97,9 +97,6 @@
       - name: Ethernet1/1
         ipv4:
           - address: 20.0.0.1/30
-      - name: Ethernet1/2
-        ipv4:
-          - address: 20.0.0.2/30
           
   - name: Configure HRSP vlan 2
     cisco.nxos.nxos_hsrp:
