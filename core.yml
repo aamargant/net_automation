@@ -1,0 +1,76 @@
+---
+
+#################################
+### Configure core1 interfaces ###
+#################################
+
+- name: Task to see config
+  hosts: core1
+  tasks:
+
+  - name: Configure interfaces to layer3
+    cisco.nxos.nxos_interfaces:
+      config:
+      - name: Ethernet1/1
+        description: Core1 to Core2 interface
+        mode: layer3
+      - name: Ethernet1/2
+        description: Core1 to Core4 interface
+        mode: layer3
+      - name: Ethernet1/3
+        description: Core1 to Core3 interface
+        mode: layer3
+      - name: Ethernet1/4
+        description: Core1 to Dist3 interface
+        mode: layer3
+      - name: Ethernet1/7
+        description: Core1 to Dist1 interface
+        mode: layer3
+
+  - name: Configure layer 3 interfaces
+    cisco.nxos.nxos_l3_interfaces:
+      config:  
+      - name: Ethernet1/1
+        ipv4:
+        - address: 10.0.1.1/24
+      - name: Ethernet1/2
+        ipv4:
+        - address: 10.0.2.1/24
+      - name: Ethernet1/3
+        ipv4:
+        - address: 10.0.3.1/24
+      - name: Ethernet1/4
+        ipv4:
+        - address: 20.0.0.6/30
+      - name: Ethernet1/7
+        ipv4:
+        - address: 20.0.0.2/30
+
+  - name: Bring up interfaces
+    cisco.nxos.nxos_interfaces:
+      config:
+      - name: Ethernet1/1
+        enabled: true
+      - name: Ethernet1/2
+        enabled: true
+      - name: Ethernet1/3
+        enabled: true
+      - name: Ethernet1/4
+        enabled: true
+      - name: Ethernet1/7
+        enabled: true
+
+
+#################################
+### Configure core2 interfaces ###
+#################################
+
+
+
+
+
+
+
+
+
+        
