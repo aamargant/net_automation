@@ -59,6 +59,21 @@
         enabled: true
       - name: Ethernet1/7
         enabled: true
+        
+  - name: Configure static routes to distribution
+    cisco.nxos.nxos_static_routes:
+      config:
+      - address_families:
+        - afi: ipv4
+          routes:
+          - dest: 192.168.10.0/24
+            next_hops:
+            - forward_router_address: 20.0.0.9
+        - afi: ipv4
+          routes:
+          - dest: 192.168.2.0/24
+            next_hops:
+            - forward_router_address: 20.0.0.1
 
 
 #################################
