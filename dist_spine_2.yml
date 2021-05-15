@@ -132,6 +132,16 @@
       priority: 100
       interface: vlan 16
       preempt: enabled
+    
+  - name: Configure static routes to distribution
+    cisco.nxos.nxos_static_routes:
+      config:
+      - address_families:
+        - afi: ipv4
+          routes:
+          - dest: 192.168.2.0/24
+            next_hops:
+            - forward_router_address: 20.0.0.10
       
 - name: Configure individual vlans and hsrp on dist4
   hosts: dist4
