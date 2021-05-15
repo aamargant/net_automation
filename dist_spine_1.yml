@@ -130,6 +130,16 @@
       interface: vlan 8
       preempt: enabled
       
+  - name: Configure static routes to core
+    cisco.nxos.nxos_static_routes:
+      config:
+        address_families:
+        - afi: ipv4
+          routes:
+          - dest: 192.168.10.0/24
+            next_hops:
+            - forward_router_address: 20.0.0.2
+                 
 - name: Configure individual vlans and hsrp on dist2
   hosts: dist2
   tasks:  
