@@ -133,7 +133,7 @@
   - name: Configure static routes to core
     cisco.nxos.nxos_static_routes:
       config:
-        address_families:
+      - address_families:
         - afi: ipv4
           routes:
           - dest: 192.168.10.0/24
