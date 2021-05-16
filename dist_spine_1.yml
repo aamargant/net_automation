@@ -141,22 +141,78 @@
           routes:
           - dest: 192.168.10.0/24
             next_hops:
-            - forward_router_address: 20.0.0.6
-        - afi: ipv4
-          routes:
-          - dest: 192.168.10.0/24
-            next_hops:
-            - forward_router_address: 20.0.0.2
-        - afi: ipv4
-          routes:
+            - interface: eth1/1
+              forward_router_address: 20.0.0.2
+            - interface: eth1/2
+              forward_router_address: 20.0.0.6
           - dest: 192.168.12.0/24
             next_hops:
-            - forward_router_address: 20.0.0.6
-        - afi: ipv4
-          routes:
-          - dest: 192.168.12.0/24
+            - interface: eth1/1
+              forward_router_address: 20.0.0.2
+            - interface: eth1/2
+              forward_router_address: 20.0.0.6
+          - dest: 192.168.14.0/24
             next_hops:
-            - forward_router_address: 20.0.0.2
+            - interface: eth1/1
+              forward_router_address: 20.0.0.2
+            - interface: eth1/2
+              forward_router_address: 20.0.0.6
+          - dest: 192.168.16.0/24
+            next_hops:
+            - interface: eth1/1
+              forward_router_address: 20.0.0.2
+            - interface: eth1/2
+              forward_router_address: 20.0.0.6
+          - dest: 192.168.18.0/24
+            next_hops:
+            - interface: eth1/1
+              forward_router_address: 20.0.0.2
+            - interface: eth1/2
+              forward_router_address: 20.0.0.6
+          - dest: 192.168.20.0/24
+            next_hops:
+            - interface: eth1/1
+              forward_router_address: 20.0.0.2
+            - interface: eth1/2
+              forward_router_address: 20.0.0.6
+          - dest: 192.168.22.0/24
+            next_hops:
+            - interface: eth1/1
+              forward_router_address: 20.0.0.2
+            - interface: eth1/2
+              forward_router_address: 20.0.0.6
+          - dest: 192.168.24.0/24
+            next_hops:
+            - interface: eth1/1
+              forward_router_address: 20.0.0.2
+            - interface: eth1/2
+              forward_router_address: 20.0.0.6
+          - dest: 192.168.26.0/24
+            next_hops:
+            - interface: eth1/1
+              forward_router_address: 20.0.0.2
+            - interface: eth1/2
+              forward_router_address: 20.0.0.6
+           - dest: 192.168.28.0/24
+            next_hops:
+            - interface: eth1/1
+              forward_router_address: 20.0.0.2
+            - interface: eth1/2
+              forward_router_address: 20.0.0.6
+          - dest: 192.168.30.0/24
+            next_hops:
+            - interface: eth1/1
+              forward_router_address: 20.0.0.2
+            - interface: eth1/2
+              forward_router_address: 20.0.0.6
+          - dest: 192.168.32.0/24
+            next_hops:
+            - interface: eth1/1
+              forward_router_address: 20.0.0.2
+            - interface: eth1/2
+              forward_router_address: 20.0.0.6
+                 
+                 
                  
 - name: Configure individual vlans and hsrp on dist2
   hosts: dist2
