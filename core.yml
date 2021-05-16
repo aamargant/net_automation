@@ -23,19 +23,53 @@
       - name: Ethernet1/4
         description: Core1 to Dist3 interface
         mode: layer3
+      - name: Ethernet1/5
+        description: Core1 to Dist4 interface
+        mode: layer3
+      - name: Ethernet1/6
+        description: Core1 to Dist2 interface
+        mode: layer3
       - name: Ethernet1/7
         description: Core1 to Dist1 interface
+        mode: layer3
+      - name: Ethernet1/8
+        description: Core1 to Dist12 interface
+        mode: layer3
+      - name: Ethernet1/9
+        description: Core1 to Dist11 interface
         mode: layer3
 
   - name: Configure layer 3 interfaces
     cisco.nxos.nxos_l3_interfaces:
       config:
+      - name: Ethernet1/1
+        ipv4:
+        - address: 20.0.0.101/30
+      - name: Ethernet1/2
+        ipv4:
+        - address: 20.0.0.97/30
+      - name: Ethernet1/3
+        ipv4:
+        - address: 20.0.0.113/30
       - name: Ethernet1/4
+        ipv4:
+        - address: 20.0.0.22/30
+      - name: Ethernet1/5
+        ipv4:
+        - address: 20.0.0.30/30
+      - name: Ethernet1/6
         ipv4:
         - address: 20.0.0.10/30
       - name: Ethernet1/7
         ipv4:
         - address: 20.0.0.2/30
+      - name: Ethernet1/8
+        ipv4:
+        - address: 20.0.0.90/30
+      - name: Ethernet1/9
+        ipv4:
+        - address: 20.0.0.82/30
+        
 
   - name: Bring up interfaces
     cisco.nxos.nxos_interfaces:
@@ -48,7 +82,15 @@
         enabled: true
       - name: Ethernet1/4
         enabled: true
+      - name: Ethernet1/4
+        enabled: true
+      - name: Ethernet1/6
+        enabled: true
       - name: Ethernet1/7
+        enabled: true
+      - name: Ethernet1/8
+        enabled: true
+      - name: Ethernet1/9
         enabled: true
         
   - name: Configure static routes to distribution
@@ -57,14 +99,30 @@
       - address_families:
         - afi: ipv4
           routes:
-          - dest: 192.168.10.0/24
-            next_hops:
-            - forward_router_address: 20.0.0.9
-        - afi: ipv4
-          routes:
           - dest: 192.168.2.0/24
             next_hops:
-            - forward_router_address: 20.0.0.1
+            - interface: eth1/6
+              forward_router_address: 20.0.0.9
+            - interface: eth1/7
+              forward_router_address: 20.0.0.1
+          - dest: 192.168.4.0/24
+            next_hops:
+            - interface: eth1/7
+              forward_router_address: 20.0.0.1
+            - interface: eth1/6
+              forward_router_address: 20.0.0.9
+          - dest: 192.168.6.0/24
+            next_hops:
+            - interface: eth1/7
+              forward_router_address: 20.0.0.1
+            - interface: eth1/6
+              forward_router_address: 20.0.0.9
+          - dest: 192.168.8.0/24
+            next_hops:
+            - interface: eth1/7
+              forward_router_address: 20.0.0.1
+            - interface: eth1/6
+              forward_router_address: 20.0.0.9
 
 
 #################################
