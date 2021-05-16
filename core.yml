@@ -107,7 +107,7 @@
       config:
       - name: Ethernet1/8
         ipv4:
-        - address: 20.0.0.14/30
+        - address: 20.0.0.6/30
 
   - name: Bring up interfaces
     cisco.nxos.nxos_interfaces:
