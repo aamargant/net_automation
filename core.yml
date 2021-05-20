@@ -343,7 +343,7 @@
         description: Core1 to Dist1 interface
         mode: layer3
 
-   - name: Configure layer 3 interfaces
+  - name: Configure layer 3 interfaces
     cisco.nxos.nxos_l3_interfaces:
       config:
       - name: Ethernet1/1
