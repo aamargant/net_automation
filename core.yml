@@ -82,7 +82,7 @@
         enabled: true
       - name: Ethernet1/4
         enabled: true
-      - name: Ethernet1/4
+      - name: Ethernet1/5
         enabled: true
       - name: Ethernet1/6
         enabled: true
