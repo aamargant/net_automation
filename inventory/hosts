@@ -1,5 +1,7 @@
 [all:vars]
 ansible_python_interpreter="/usr/bin/env python"
+username=cisco 
+password=cisco
 
 ###############
 # Main Groups #
@@ -59,56 +61,56 @@ access8
 ########
 
 [core1]
-10.10.20.177 username=cisco password=cisco
+10.10.20.177 
 
 [core2]
-10.10.20.178 username=cisco password=cisco
+10.10.20.178 
 
 [core3]
-10.10.20.179 username=cisco password=cisco
+10.10.20.179 
 
 [core4]
-10.10.20.180 username=cisco password=cisco
+10.10.20.180
 
 ################
 # Distribution #
 ################
 
 [dist1]
-10.10.20.181 username=cisco password=cisco
+10.10.20.181 
 
 [dist2]
-10.10.20.182 username=cisco password=cisco
+10.10.20.182 
 
 [dist3]
-10.10.20.183 username=cisco password=cisco
+10.10.20.183 
 
 [dist4]
-10.10.20.184 username=cisco password=cisco
+10.10.20.184 
 
 [dist5]
-10.10.20.185 username=cisco password=cisco
+10.10.20.185 
 
 [dist6]
-10.10.20.186 username=cisco password=cisco
+10.10.20.186 
 
 [dist7]
-10.10.20.187 username=cisco password=cisco
+10.10.20.187 
 
 [dist8]
-10.10.20.188 username=cisco password=cisco
+10.10.20.188 
 
 [dist9]
-10.10.20.189 username=cisco password=cisco
+10.10.20.189 
 
 [dist10]
-10.10.20.190 username=cisco password=cisco
+10.10.20.190 
 
 [dist11]
-10.10.20.191 username=cisco password=cisco
+10.10.20.191 
 
 [dist12]
-10.10.20.192 username=cisco password=cisco
+10.10.20.192 
 
 
 ##########
@@ -116,62 +118,62 @@ access8
 ##########
 
 [access1]
-10.10.20.193 username=cisco password=cisco
+10.10.20.193 
 
 [access2]
-10.10.20.194 username=cisco password=cisco
+10.10.20.194 
 
 [access3]
-10.10.20.195 username=cisco password=cisco
+10.10.20.195
 
 [access4]
-10.10.20.196 username=cisco password=cisco
+10.10.20.196 
 
 [access5]
-10.10.20.197 username=cisco password=cisco
+10.10.20.197 
 
 [access6]
-10.10.20.198 username=cisco password=cisco
+10.10.20.198 
 
 [access7]
-10.10.20.199 username=cisco password=cisco
+10.10.20.199 
 
 [access8]
-10.10.20.200 username=cisco password=cisco
+10.10.20.200 
 
 [access9]
-10.10.20.201 username=cisco password=cisco
+10.10.20.201 
 
 [access10]
-10.10.20.202 username=cisco password=cisco
+10.10.20.202 
 
 [access11]
-10.10.20.203 username=cisco password=cisco
+10.10.20.203 
 
 [access12]
-10.10.20.204 username=cisco password=cisco
+10.10.20.204 
 
 [access13]
-10.10.20.205 username=cisco password=cisco
+10.10.20.205 
 
 [access14]
-10.10.20.206 username=cisco password=cisco
+10.10.20.206 
 
 [access15]
-10.10.20.207 username=cisco password=cisco
+10.10.20.207 
 
 [access16]
-10.10.20.208 username=cisco password=cisco
+10.10.20.208 
 
 [access17]
-10.10.20.209 username=cisco password=cisco
+10.10.20.209 
 
 [access18]
-10.10.20.210 username=cisco password=cisco
+10.10.20.210 
 
 [access19]
-10.10.20.211 username=cisco password=cisco
+10.10.20.211
 
 [access20]
-10.10.20.212 username=cisco password=cisco
+10.10.20.212
 
