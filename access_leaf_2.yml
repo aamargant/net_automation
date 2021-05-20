@@ -1,7 +1,7 @@
 ---
 
 - name: Configure Access Leaf 3
-  hosts: access_leaf_3
+  hosts: access_leaf_group_3
   tasks:
 
   - name: Create VLANs
@@ -37,7 +37,7 @@
           vlan: 12
 
 - name: Configure Access Leaf 4
-  hosts: access_leaf_4
+  hosts: access_leaf_group_4
   tasks:
 
   - name: Create VLANs
