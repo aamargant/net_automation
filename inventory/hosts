@@ -16,16 +16,27 @@ core4
 [distribution:children]
 dist_spine_1
 dist_spine_2
+dist_spine_3
+dist_spine_4
+dist_spine_5
+dist_spine_6
 
 [access:children]
-access_leaf_1
-access_leaf_2
-access_leaf_3
-access_leaf_4
+access_leaf_group_1
+access_leaf_group_2
+access_leaf_group_3
+access_leaf_group_4
+access_leaf_group_5
+access_leaf_group_6
+access_leaf_group_7
+access_leaf_group_8
+access_leaf_group_9
+access_leaf_group_10
 
-#############
-# Subgroups #
-#############
+
+##########################
+# Subgroups-Distribution #
+##########################
 
 [dist_spine_1:children]
 dist1
@@ -35,21 +46,66 @@ dist2
 dist3
 dist4
 
-[access_leaf_1:children]
+[dist_spine_3:children]
+dist5
+dist6
+
+[dist_spine_4:children]
+dist7
+dist8
+
+[dist_spine_5:children]
+dist9
+dist10
+
+[dist_spine_6:children]
+dist11
+dist12
+
+
+####################
+# Subgroups-Access #
+####################
+
+[access_leaf_group_1:children]
 access1
 access2
 
-[access_leaf_2:children]
+[access_leaf_group_2:children]
 access3
 access4
 
-[access_leaf_3:children]
+[access_leaf_group_3:children]
 access5
 access6
 
-[access_leaf_4:children]
+[access_leaf_group_4:children]
 access7
 access8
+
+[access_leaf_group_5:children]
+access9
+access10
+
+[access_leaf_group_6:children]
+access11
+access12
+
+[access_leaf_group_7:children]
+access13
+access14
+
+[access_leaf_group_8:children]
+access15
+access16
+
+[access_leaf_group_9:children]
+access17
+access18
+
+[access_leaf_group_10:children]
+access19
+access20
 
 
 ####################
