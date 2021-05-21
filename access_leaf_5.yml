@@ -4,11 +4,11 @@
   hosts: access_leaf_group_9
   tasks:
 
-  - name: Create VLANs
+  - name: Create and enable VLANs 26 and 28
     ios_vlans:
       config:
        - name: vlan26
-         vlan_id: 28
+         vlan_id: 26
          state: active
          shutdown: disabled
        - name: vlan28
@@ -30,17 +30,17 @@
       - name: GigabitEthernet0/3
         mode: access
         access:
-          vlan: 10
+          vlan: 26
       - name: GigabitEthernet1/0
         mode: access
         access:
-          vlan: 12
+          vlan: 28
 
 - name: Configure Access Leaf Group 10
   hosts: access_leaf_group_10
   tasks:
 
-  - name: Create VLANs
+  - name: Create and enable VLANs 30 and 32
     ios_vlans:
       config:
        - name: vlan30
