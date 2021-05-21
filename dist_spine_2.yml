@@ -79,7 +79,7 @@
   hosts: dist3
   tasks:  
             
-  - name: Configure VLANs
+  - name: Configure VLANs and static routes
     cisco.nxos.nxos_l3_interfaces:
       config:
       - name: vlan 10
@@ -217,7 +217,7 @@
   hosts: dist4
   tasks:  
             
-  - name: Configure VLANs
+  - name: Configure VLANs and static routes
     cisco.nxos.nxos_l3_interfaces:
       config:
       - name: vlan 10
