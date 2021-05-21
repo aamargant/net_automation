@@ -16,7 +16,7 @@
          state: active
          shutdown: disabled
 
-  - name: Setting switchport mode turnk and set access ports
+  - name: Setting switchport mode turnk and access ports
     cisco.ios.ios_l2_interfaces:
       config:
       - name: GigabitEthernet0/1
@@ -52,7 +52,7 @@
          state: active
          shutdown: disabled
 
-  - name: Setting switchport mode turnk and set access ports 
+  - name: Setting switchport mode turnk and access ports 
     cisco.ios.ios_l2_interfaces:
       config:
       - name: GigabitEthernet0/1
