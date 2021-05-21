@@ -1,1 +1,353 @@
+---
 
+- name: Configure distribution layer spine 6
+  hosts: dist_spine_6
+  tasks:
+
+  - name: Create and enable VLANs
+    cisco.nxos.nxos_vlans:
+      config:
+       - name: vlan26      
+         vlan_id: 26
+         state: active
+       - name: vlan28
+         vlan_id: 28
+         state: active
+       - name: vlan30
+         vlan_id: 30
+         state: active
+       - name: vlan32
+         vlan_id: 32
+         state: active
+
+  - name: Enable interface-vlan
+    nxos_feature:
+      feature: interface-vlan    
+      state: enabled
+      
+  - name: Enable HSRP
+    nxos_feature:
+      feature: hsrp
+      state: enabled
+
+  - name: Enable vlan 26
+    cisco.nxos.nxos_interface:
+      name: vlan 26
+      admin_state: up
+
+  - name: Enable vlan 28
+    cisco.nxos.nxos_interface: 
+      name: vlan 28
+      admin_state: up
+
+  - name: Enable vlan 30
+    cisco.nxos.nxos_interface:    
+      name: vlan 30
+      admin_state: up
+
+  - name: Enable vlan 32
+    cisco.nxos.nxos_interface:
+      name: vlan 32
+      admin_state: up
+
+  - name: Configure trunk switchports
+    cisco.nxos.nxos_l2_interfaces:   
+      config:
+      - name: Ethernet1/3
+        mode: trunk  
+      - name: Ethernet1/4
+        mode: trunk
+      - name: Ethernet1/5
+        mode: trunk
+      - name: Ethernet1/6
+        mode: trunk 
+      - name: Ethernet1/7
+        mode: trunk 
+        
+  - name: Configure interfaces to layer 3
+    cisco.nxos.nxos_interfaces:
+      config:
+      - name: Ethernet1/1
+        enabled: true
+        mode: layer3
+      - name: Ethernet1/2
+        enabled: true
+        mode: layer3    
+        
+
+- name: Configure individual vlans and hsrp on dist3 and static routes
+  hosts: dist11
+  tasks:  
+            
+  - name: Configure VLANs
+    cisco.nxos.nxos_l3_interfaces:
+      config:
+      - name: vlan 26
+        ipv4:
+          - address: 192.168.26.2/24
+      - name: vlan 28
+        ipv4:
+          - address: 192.168.28.2/24
+      - name: vlan 30
+        ipv4:
+          - address: 192.168.30.2/24
+      - name: vlan 32
+        ipv4:
+          - address: 192.168.32.2/24
+      - name: Ethernet1/1
+        ipv4:
+          - address: 20.0.0.81/30
+      - name: Ethernet1/2
+        ipv4:
+          - address: 20.0.0.85/30
+        
+          
+  - name: Configure HRSP vlan 26
+    cisco.nxos.nxos_hsrp:
+      group: 26
+      vip: 192.168.26.1
+      priority: 120
+      interface: vlan 26
+      preempt: enabled
+      
+  - name: Configure HRSP vlan 28
+    cisco.nxos.nxos_hsrp:
+      group: 28
+      vip: 192.168.28.1
+      priority: 100
+      interface: vlan 28
+      preempt: enable
+  - name: Configure HRSP vlan 30
+    cisco.nxos.nxos_hsrp:
+      group: 30
+      vip: 192.168.30.1
+      priority: 120
+      interface: vlan 30
+      preempt: enabled
+      
+  - name: Configure HRSP vlan 32
+    cisco.nxos.nxos_hsrp:
+      group: 32
+      vip: 192.168.32.1
+      priority: 100
+      interface: vlan 32
+      preempt: enabled
+    
+  - name: Configure static routes to core
+    cisco.nxos.nxos_static_routes:
+      config:
+      - address_families:
+        - afi: ipv4
+          routes:
+          - dest: 192.168.2.0/24
+            next_hops:
+            - interface: eth1/2
+              forward_router_address: 20.0.0.18
+            - interface: eth1/1
+              forward_router_address: 20.0.0.22
+          - dest: 192.168.4.0/24
+            next_hops:
+            - interface: eth1/2
+              forward_router_address: 20.0.0.18
+            - interface: eth1/1
+              forward_router_address: 20.0.0.22
+          - dest: 192.168.6.0/24
+            next_hops:
+            - interface: eth1/2
+              forward_router_address: 20.0.0.18
+            - interface: eth1/1
+              forward_router_address: 20.0.0.22
+          - dest: 192.168.8.0/24
+            next_hops:
+            - interface: eth1/2
+              forward_router_address: 20.0.0.18
+            - interface: eth1/1
+              forward_router_address: 20.0.0.22
+          - dest: 192.168.10.0/24
+            next_hops:
+            - interface: eth1/2
+              forward_router_address: 20.0.0.18
+            - interface: eth1/1
+              forward_router_address: 20.0.0.22
+          - dest: 192.168.12.0/24
+            next_hops:
+            - interface: eth1/2
+              forward_router_address: 20.0.0.18
+            - interface: eth1/1
+              forward_router_address: 20.0.0.22
+          - dest: 192.168.14.0/24
+            next_hops:
+            - interface: eth1/2
+              forward_router_address: 20.0.0.18
+            - interface: eth1/1
+              forward_router_address: 20.0.0.22
+          - dest: 192.168.16.0/24
+            next_hops:
+            - interface: eth1/2
+              forward_router_address: 20.0.0.18
+            - interface: eth1/1
+              forward_router_address: 20.0.0.22
+          - dest: 192.168.18.0/24
+            next_hops:
+            - interface: eth1/2
+              forward_router_address: 20.0.0.18
+            - interface: eth1/1
+              forward_router_address: 20.0.0.22
+          - dest: 192.168.20.0/24
+            next_hops:
+            - interface: eth1/2
+              forward_router_address: 20.0.0.18
+            - interface: eth1/1
+              forward_router_address: 20.0.0.22
+          - dest: 192.168.22.0/24
+            next_hops:
+            - interface: eth1/1
+              forward_router_address: 20.0.0.22
+            - interface: eth1/2
+              forward_router_address: 20.0.0.18
+          - dest: 192.168.24.0/24
+            next_hops:
+            - interface: eth1/1
+              forward_router_address: 20.0.0.22
+            - interface: eth1/2
+              forward_router_address: 20.0.0.18
+       
+      
+- name: Configure individual vlans and hsrp on dist4
+  hosts: dist12
+  tasks:  
+            
+  - name: Configure VLANs
+    cisco.nxos.nxos_l3_interfaces:
+      config:
+      - name: vlan 26
+        ipv4:
+          - address: 192.168.26.3/24
+      - name: vlan 28
+        ipv4:
+          - address: 192.168.28.3/24
+      - name: vlan 30
+        ipv4:
+          - address: 192.168.30.3/24
+      - name: vlan 32
+        ipv4:
+          - address: 192.168.32.3/24
+      - name: Ethernet1/1
+        ipv4:
+          - address: 20.0.0.89/30
+      - name: Ethernet1/2
+        ipv4:
+          - address: 20.0.0.93/30
+          
+  - name: Configure HRSP vlan26
+    cisco.nxos.nxos_hsrp:
+      group: 26
+      vip: 192.168.26.1
+      priority: 100
+      interface: vlan 26
+      preempt: enabled
+      
+  - name: Configure HRSP vlan28
+    cisco.nxos.nxos_hsrp:
+      group: 28
+      vip: 192.168.28.1
+      priority: 120
+      interface: vlan 28
+      preempt: enabled
+
+  - name: Configure HRSP vlan30
+    cisco.nxos.nxos_hsrp:
+      group: 30
+      vip: 192.168.30.1
+      priority: 100
+      interface: vlan 30
+      preempt: enabled
+      
+  - name: Configure HRSP vlan32
+    cisco.nxos.nxos_hsrp:
+      group: 32
+      vip: 192.168.32.1
+      priority: 120
+      interface: vlan 32
+      preempt: enabled
+     
+  - name: Configure static routes to distribution
+    cisco.nxos.nxos_static_routes:
+      config:
+      - address_families:
+        - afi: ipv4
+          routes:
+          - dest: 192.168.2.0/24
+            next_hops:
+            - interface: eth1/2
+              forward_router_address: 20.0.0.26
+            - interface: eth1/1
+              forward_router_address: 20.0.0.30
+          - dest: 192.168.4.0/24
+            next_hops:
+            - interface: eth1/2
+              forward_router_address: 20.0.0.26
+            - interface: eth1/1
+              forward_router_address: 20.0.0.30
+          - dest: 192.168.6.0/24
+            next_hops:
+            - interface: eth1/2
+              forward_router_address: 20.0.0.26
+            - interface: eth1/1
+              forward_router_address: 20.0.0.30
+          - dest: 192.168.8.0/24
+            next_hops:
+            - interface: eth1/2
+              forward_router_address: 20.0.0.26
+            - interface: eth1/1
+              forward_router_address: 20.0.0.30
+          - dest: 192.168.10.0/24
+            next_hops:
+            - interface: eth1/2
+              forward_router_address: 20.0.0.26
+            - interface: eth1/1
+              forward_router_address: 20.0.0.30
+          - dest: 192.168.12.0/24
+            next_hops:
+            - interface: eth1/2
+              forward_router_address: 20.0.0.26
+            - interface: eth1/1
+              forward_router_address: 20.0.0.30
+          - dest: 192.168.14.0/24
+            next_hops:
+            - interface: eth1/2
+              forward_router_address: 20.0.0.26
+            - interface: eth1/1
+              forward_router_address: 20.0.0.30
+          - dest: 192.168.16.0/24
+            next_hops:
+            - interface: eth1/2
+              forward_router_address: 20.0.0.26
+            - interface: eth1/1
+              forward_router_address: 20.0.0.30
+
+          - dest: 192.168.18.0/24
+            next_hops:
+            - interface: eth1/1
+              forward_router_address: 20.0.0.30
+            - interface: eth1/2
+              forward_router_address: 20.0.0.26
+          - dest: 192.168.20.0/24
+            next_hops:
+            - interface: eth1/1
+              forward_router_address: 20.0.0.30
+            - interface: eth1/2
+              forward_router_address: 20.0.0.26
+          - dest: 192.168.22.0/24
+            next_hops:
+            - interface: eth1/2
+              forward_router_address: 20.0.0.26
+            - interface: eth1/1
+              forward_router_address: 20.0.0.30
+          - dest: 192.168.24.0/24
+            next_hops:
+            - interface: eth1/2
+              forward_router_address: 20.0.0.26
+            - interface: eth1/1
+              forward_router_address: 20.0.0.30
+          
