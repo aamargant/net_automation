@@ -1,10 +1,10 @@
 ---
 
-- name: Configure Access Leaf 3
+- name: Configure Access Leaf Group 3
   hosts: access_leaf_group_3
   tasks:
 
-  - name: Create VLANs
+  - name: Create and enable VLANs 10 and 12
     ios_vlans:
       config:
        - name: vlan10
@@ -36,11 +36,11 @@
         access:
           vlan: 12
 
-- name: Configure Access Leaf 4
+- name: Configure Access Leaf Group 4
   hosts: access_leaf_group_4
   tasks:
 
-  - name: Create VLANs
+  - name: Create and enable VLANs 14 qnd 16
     ios_vlans:
       config:
        - name: vlan14
