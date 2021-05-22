@@ -1,6 +1,6 @@
 ansible_network_os: nxos
 
-local_users_full:
+local_users_full: ????
   - name: cisco
     privilege: 15
     configured_password: "cisco"
