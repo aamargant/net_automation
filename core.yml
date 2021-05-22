@@ -302,6 +302,149 @@
 ### Configure core3 interfaces ###
 #################################
 
+- name: Task to see config
+  hosts: core3
+  tasks:
+
+  - name: Configure interfaces to layer3
+    cisco.nxos.nxos_interfaces:
+      config:
+      - name: Ethernet1/1
+        description: Core2 to Core1 interface
+        mode: layer3
+      - name: Ethernet1/2
+        description: Core2 to Core4 interface
+        mode: layer3
+      - name: Ethernet1/3
+        description: Core2 to Core3 interface
+        mode: layer3
+      - name: Ethernet1/4
+        description: Core2 to Dist3 interface
+        mode: layer3
+      - name: Ethernet1/5
+        description: Core2 to Dist4 interface
+        mode: layer3
+      - name: Ethernet1/6
+        description: Core2 to Dist5 interface
+        mode: layer3
+      - name: Ethernet1/7
+        description: Core2 to Dist6 interface
+        mode: layer3
+      - name: Ethernet1/8
+        description: Core2 to Dist7 interface
+        mode: layer3
+      - name: Ethernet1/9
+        description: Core2 to Dist8 interface
+        mode: layer3
+
+  - name: Configure layer 3 interfaces
+    cisco.nxos.nxos_l3_interfaces:
+      config:
+      - name: Ethernet1/1
+        ipv4:
+        - address: 20.0.0.102/30
+      - name: Ethernet1/2
+        ipv4:
+        - address: 20.0.0.118/30
+      - name: Ethernet1/3
+        ipv4:
+        - address: 20.0.0.105/30
+      - name: Ethernet1/4
+        ipv4:
+        - address: 20.0.0.18/30
+      - name: Ethernet1/5
+        ipv4:
+        - address: 20.0.0.26/30
+      - name: Ethernet1/6
+        ipv4:
+        - address: 20.0.0.38/30
+      - name: Ethernet1/7
+        ipv4:
+        - address: 20.0.0.46/30
+      - name: Ethernet1/8
+        ipv4:
+        - address: 20.0.0.54/30
+      - name: Ethernet1/9
+        ipv4:
+        - address: 20.0.0.62/30
+        
+
+  - name: Bring up interfaces
+    cisco.nxos.nxos_interfaces:
+      config:
+      - name: Ethernet1/1
+        enabled: true
+      - name: Ethernet1/2
+        enabled: true
+      - name: Ethernet1/3
+        enabled: true
+      - name: Ethernet1/4
+        enabled: true
+      - name: Ethernet1/4
+        enabled: true
+      - name: Ethernet1/6
+        enabled: true
+      - name: Ethernet1/7
+        enabled: true
+      - name: Ethernet1/8
+        enabled: true
+      - name: Ethernet1/9
+        enabled: true
+        
+  - name: Configure static routes to distribution and core
+    cisco.nxos.nxos_static_routes:
+      config:
+      - address_families:
+        - afi: ipv4
+          routes:
+          - dest: 192.168.2.0/24
+            next_hops:
+            - interface: eth1/1
+              forward_router_address: 20.0.0.101
+            - interface: eth1/2
+              forward_router_address: 20.0.0.117
+          - dest: 192.168.4.0/24
+            next_hops:
+            - interface: eth1/1
+              forward_router_address: 20.0.0.101
+            - interface: eth1/2
+              forward_router_address: 20.0.0.117
+          - dest: 192.168.6.0/24
+            next_hops:
+            - interface: eth1/1
+              forward_router_address: 20.0.0.101
+            - interface: eth1/2
+              forward_router_address: 20.0.0.117
+          - dest: 192.168.8.0/24
+            next_hops:
+            - interface: eth1/1
+              forward_router_address: 20.0.0.101
+            - interface: eth1/2
+              forward_router_address: 20.0.0.117
+          - dest: 192.168.10.0/24
+            next_hops:
+            - interface: eth1/4
+              forward_router_address: 20.0.0.17
+            - interface: eth1/5
+              forward_router_address: 20.0.0.25
+          - dest: 192.168.12.0/24
+            next_hops:
+            - interface: eth1/4
+              forward_router_address: 20.0.0.17
+            - interface: eth1/5
+              forward_router_address: 20.0.0.25
+          - dest: 192.168.14.0/24
+            next_hops:
+            - interface: eth1/4
+              forward_router_address: 20.0.0.17
+            - interface: eth1/5
+              forward_router_address: 20.0.0.25
+          - dest: 192.168.16.0/24
+            next_hops:
+            - interface: eth1/4
+              forward_router_address: 20.0.0.17
+            - interface: eth1/5
+              forward_router_address: 20.0.0.25
 
 
 #################################
