@@ -19,7 +19,7 @@ def login():
     return token
 
 
-def createTopologyFromFile():
+def createTopologyFromFile(token):
     with open('campusTopology.yaml', 'rb') as payload:
         headers = {'content-type': 'application/json',
                    'Authorization': token
@@ -32,4 +32,4 @@ def createTopologyFromFile():
         else:
             return "Failed\n" +response.text
 
-print(createTopologyFromFile())
+print(createTopologyFromFile(login()))
