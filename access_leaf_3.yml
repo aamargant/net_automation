@@ -1,1 +1,33 @@
+---
 
+- name: Configure Access Leaf Group 5
+  hosts: access_leaf_group_5
+  tasks:
+
+  - name: Create and enable VLAN 250
+    ios_vlans:
+      config:
+       - name: vlan250
+         vlan_id: 250
+         state: active
+         shutdown: disabled
+      
+  - name: Setting switchport mode turnk and access ports
+    cisco.ios.ios_l2_interfaces:
+      config:
+      - name: GigabitEthernet0/1
+        mode: trunk
+        trunk:
+          encapsulation: dot1q
+      - name: GigabitEthernet0/2
+        mode: trunk
+        trunk:
+          encapsulation: dot1q
+      - name: GigabitEthernet0/3
+        mode: access
+        access:
+          vlan: 250
+      - name: GigabitEthernet1/0
+        mode: access
+        access:
+          vlan: 250
