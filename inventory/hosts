@@ -27,7 +27,6 @@ access_leaf_group_2
 access_leaf_group_3
 access_leaf_group_4
 access_leaf_group_5
-access_leaf_group_6
 access_leaf_group_7
 access_leaf_group_8
 access_leaf_group_9
@@ -86,10 +85,6 @@ access8
 [access_leaf_group_5:children]
 access9
 access10
-
-[access_leaf_group_6:children]
-access11
-access12
 
 [access_leaf_group_7:children]
 access13
