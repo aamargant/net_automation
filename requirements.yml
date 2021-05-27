@@ -7,6 +7,9 @@ collections:
   - name: cisco.nxos
     version: 2.0.0
     source: https://galaxy.ansible.com
+  - name: cisco.asa
+    version: 2.0.2
+    source: https://galaxy.ansible.com
 
 
 
