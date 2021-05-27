@@ -24,7 +24,7 @@ def createTopologyFromFile(token):
         headers = {'content-type': 'application/json',
                    'Authorization': token
                    }
-        nom_lab = input("Escriu nom de la topologia:")
+        nom_lab = input("Escriu nom de la topologia: ")
         response = requests.request("POST", baseUrl + "/import?title="+ nom_lab, headers=headers, data=payload,
                                     verify=False)
         if response.text.__contains__("id"):
