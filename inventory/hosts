@@ -32,6 +32,10 @@ access_leaf_group_8
 access_leaf_group_9
 access_leaf_group_10
 
+[firewall:children]
+firewall-1
+firewall-2
+
 
 ##########################
 # Subgroups-Distribution #
