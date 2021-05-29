@@ -22,3 +22,21 @@
       - security-level 0
       - no shutdown
       parents: interface GigabitEthernet0/1
+
+  - name: Configure static route
+    cisco.asa.asa_config:
+      lines:
+      - route outside 0.0.0.0 0.0.0.0 209.165.200.225
+
+  - name: Configure inside net
+    cisco.asa.asa_config:
+      lines:
+      - subnet 192.168.1.0 255.255.255.0
+      - nat (inside,outside) dynamic interface
+      parents: object network INSIDE-NET  
+
+  - name: Configure icmp policy
+    cisco.asa.asa_config:
+      lines:
+      - inspect icmp
+      parents: [policy-map global_policy, class inspection_default]
