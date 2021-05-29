@@ -227,7 +227,7 @@ access20
 10.10.20.212
 
 [firewall-1]
-10.10.20.213
+10.10.20.213 ansible_become_password=cisco
 
 [firewall-2]
-10.10.20.214
+10.10.20.214 ansible_become_password=cisco

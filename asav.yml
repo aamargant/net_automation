@@ -2,13 +2,19 @@
 
 - name: Configure Access Leaf Group 9
   hosts: firewall-1
+  become: yes
   tasks:
 
   - name: Create and enable VLANs 26 and 28
     cisco.asa.asa_config:
       lines:
-      - interface GigabitEthernet0/0
       - ip address 192.168.1.1 255.255.255.0
       - nameif inside
       - security-level 100
-        
+      - no shutdown
+      parents: interface GigabitEthernet0/0  
+      lines:
+      - ip address 209.165.200.226 255.255.255.252
+      - nameif outside
+      - security-level 0
+      parents: interface GigabitEthernet0/1
