@@ -24,6 +24,16 @@
     nxos_feature:
       feature: interface-vlan    
       state: enabled
+     
+  - name: Enable RESTCONF
+    nxos_feature:
+      feature: restconf   
+      state: enabled
+      
+  - name: Enable NETCONF
+    nxos_feature:
+      feature: netconf  
+      state: enabled
       
   - name: Enable HSRP
     nxos_feature:
@@ -211,6 +221,18 @@
               forward_router_address: 20.0.0.6
             - interface: eth1/1
               forward_router_address: 20.0.0.2
+          - dest: 192.168.250.0/24
+            next_hops:
+            - interface: eth1/2
+              forward_router_address: 20.0.0.6
+            - interface: eth1/1
+              forward_router_address: 20.0.0.2
+          - dest: 209.165.201.0/24
+            next_hops:
+            - interface: eth1/2
+              forward_router_address: 20.0.0.6
+            - interface: eth1/1
+              forward_router_address: 20.0.0.2
                  
                  
 - name: Configure individual vlans and hsrp on dist2
@@ -344,6 +366,18 @@
             - interface: eth1/1
               forward_router_address: 20.0.0.10
           - dest: 192.168.32.0/24
+            next_hops:
+            - interface: eth1/2
+              forward_router_address: 20.0.0.14
+            - interface: eth1/1
+              forward_router_address: 20.0.0.10
+          - dest: 192.168.250.0/24
+            next_hops:
+            - interface: eth1/2
+              forward_router_address: 20.0.0.14
+            - interface: eth1/1
+              forward_router_address: 20.0.0.10
+          - dest: 209.165.201.0/24
             next_hops:
             - interface: eth1/2
               forward_router_address: 20.0.0.14
