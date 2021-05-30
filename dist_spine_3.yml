@@ -57,7 +57,7 @@
         mode: layer3    
         
 
-- name: Configure individual vlans and hsrp on dist3 and static routes
+- name: Configure individual vlans and hsrp on dist5 and static routes
   hosts: dist5
   tasks:  
             
@@ -191,7 +191,7 @@
             - interface: eth1/1
               forward_router_address: 20.0.0.38
       
-- name: Configure individual vlans and hsrp on dist4
+- name: Configure individual vlans and hsrp on dist6
   hosts: dist6
   tasks:  
             
@@ -208,7 +208,7 @@
         ipv4:
           - address: 20.0.0.41/30
           
-  - name: Configure HRSP vlan10
+  - name: Configure HRSP vlan250
     cisco.nxos.nxos_hsrp:
       group: 10
       vip: 192.168.250.1
