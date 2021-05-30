@@ -1,1 +1,245 @@
+---
 
+- name: Configure distribution layer spine 3
+  hosts: dist_spine_4
+  tasks:
+        
+  - name: Configure interfaces to layer 3
+    cisco.nxos.nxos_interfaces:
+      config:
+      - name: Ethernet1/1
+        enabled: true
+        mode: layer3
+      - name: Ethernet1/2
+        enabled: true
+        mode: layer3    
+        
+
+- name: Configure individual vlans and hsrp on dist3 and static routes
+  hosts: dist5
+  tasks:  
+    
+  - name: Configure static routes to core
+    cisco.nxos.nxos_static_routes:
+      config:
+      - address_families:
+        - afi: ipv4
+          routes:
+          - dest: 192.168.2.0/24
+            next_hops:
+            - interface: eth1/2
+              forward_router_address: 20.0.0.34
+            - interface: eth1/1
+              forward_router_address: 20.0.0.38
+          - dest: 192.168.4.0/24
+            next_hops:
+            - interface: eth1/2
+              forward_router_address: 20.0.0.34
+            - interface: eth1/1
+              forward_router_address: 20.0.0.38
+          - dest: 192.168.6.0/24
+            next_hops:
+            - interface: eth1/2
+              forward_router_address: 20.0.0.34
+            - interface: eth1/1
+              forward_router_address: 20.0.0.38
+          - dest: 192.168.8.0/24
+            next_hops:
+            - interface: eth1/2
+              forward_router_address: 20.0.0.34
+            - interface: eth1/1
+              forward_router_address: 20.0.0.38
+          - dest: 192.168.10.0/24
+            next_hops:
+            - interface: eth1/2
+              forward_router_address: 20.0.0.34
+            - interface: eth1/1
+              forward_router_address: 20.0.0.38
+          - dest: 192.168.12.0/24
+            next_hops:
+            - interface: eth1/2
+              forward_router_address: 20.0.0.34
+            - interface: eth1/1
+              forward_router_address: 20.0.0.38
+          - dest: 192.168.14.0/24
+            next_hops:
+            - interface: eth1/2
+              forward_router_address: 20.0.0.34
+            - interface: eth1/1
+              forward_router_address: 20.0.0.38
+          - dest: 192.168.16.0/24
+            next_hops:
+            - interface: eth1/2
+              forward_router_address: 20.0.0.34
+            - interface: eth1/1
+              forward_router_address: 20.0.0.38
+          - dest: 192.168.18.0/24
+            next_hops:
+            - interface: eth1/2
+              forward_router_address: 20.0.0.34
+            - interface: eth1/1
+              forward_router_address: 20.0.0.38
+          - dest: 192.168.20.0/24
+            next_hops:
+            - interface: eth1/2
+              forward_router_address: 20.0.0.34
+            - interface: eth1/1
+              forward_router_address: 20.0.0.38
+          - dest: 192.168.22.0/24
+            next_hops:
+            - interface: eth1/1
+              forward_router_address: 20.0.0.38
+            - interface: eth1/2
+              forward_router_address: 20.0.0.34
+          - dest: 192.168.24.0/24
+            next_hops:
+            - interface: eth1/1
+              forward_router_address: 20.0.0.38
+            - interface: eth1/2
+              forward_router_address: 20.0.0.34
+          - dest: 192.168.26.0/24
+            next_hops:
+            - interface: eth1/2
+              forward_router_address: 20.0.0.34
+            - interface: eth1/1
+              forward_router_address: 20.0.0.38
+          - dest: 192.168.28.0/24
+            next_hops:
+            - interface: eth1/2
+              forward_router_address: 20.0.0.34
+            - interface: eth1/1
+              forward_router_address: 20.0.0.38
+          - dest: 192.168.30.0/24
+            next_hops:
+            - interface: eth1/2
+              forward_router_address: 20.0.0.34
+            - interface: eth1/1
+              forward_router_address: 20.0.0.38
+          - dest: 192.168.32.0/24
+            next_hops:
+            - interface: eth1/2
+              forward_router_address: 20.0.0.34
+            - interface: eth1/1
+              forward_router_address: 20.0.0.38
+      
+- name: Configure individual vlans and hsrp on dist4
+  hosts: dist6
+  tasks:  
+            
+  - name: Configure VLANs and static routes
+    cisco.nxos.nxos_l3_interfaces:
+      config:
+      - name: vlan 250
+        ipv4:
+          - address: 192.168.250.3/24
+          
+  - name: Configure HRSP vlan10
+    cisco.nxos.nxos_hsrp:
+      group: 10
+      vip: 192.168.250.1
+      priority: 100
+      interface: vlan 250
+      preempt: enabled
+      
+  - name: Configure static routes to core
+    cisco.nxos.nxos_static_routes:
+      config:
+      - address_families:
+        - afi: ipv4
+          routes:
+          - dest: 192.168.2.0/24
+            next_hops:
+            - interface: eth1/2
+              forward_router_address: 20.0.0.42
+            - interface: eth1/1
+              forward_router_address: 20.0.0.46
+          - dest: 192.168.4.0/24
+            next_hops:
+            - interface: eth1/2
+              forward_router_address: 20.0.0.42
+            - interface: eth1/1
+              forward_router_address: 20.0.0.46
+          - dest: 192.168.6.0/24
+            next_hops:
+            - interface: eth1/2
+              forward_router_address: 20.0.0.42
+            - interface: eth1/1
+              forward_router_address: 20.0.0.46
+          - dest: 192.168.8.0/24
+            next_hops:
+            - interface: eth1/2
+              forward_router_address: 20.0.0.42
+            - interface: eth1/1
+              forward_router_address: 20.0.0.46
+          - dest: 192.168.10.0/24
+            next_hops:
+            - interface: eth1/2
+              forward_router_address: 20.0.0.42
+            - interface: eth1/1
+              forward_router_address: 20.0.0.46
+          - dest: 192.168.12.0/24
+            next_hops:
+            - interface: eth1/2
+              forward_router_address: 20.0.0.42
+            - interface: eth1/1
+              forward_router_address: 20.0.0.46
+          - dest: 192.168.14.0/24
+            next_hops:
+            - interface: eth1/2
+              forward_router_address: 20.0.0.42
+            - interface: eth1/1
+              forward_router_address: 20.0.0.46
+          - dest: 192.168.16.0/24
+            next_hops:
+            - interface: eth1/2
+              forward_router_address: 20.0.0.42
+            - interface: eth1/1
+              forward_router_address: 20.0.0.46
+          - dest: 192.168.18.0/24
+            next_hops:
+            - interface: eth1/2
+              forward_router_address: 20.0.0.42
+            - interface: eth1/1
+              forward_router_address: 20.0.0.46
+          - dest: 192.168.20.0/24
+            next_hops:
+            - interface: eth1/2
+              forward_router_address: 20.0.0.42
+            - interface: eth1/1
+              forward_router_address: 20.0.0.46
+          - dest: 192.168.22.0/24
+            next_hops:
+            - interface: eth1/2
+              forward_router_address: 20.0.0.42
+            - interface: eth1/1
+              forward_router_address: 20.0.0.46
+          - dest: 192.168.24.0/24
+            next_hops:
+            - interface: eth1/2
+              forward_router_address: 20.0.0.42
+            - interface: eth1/1
+              forward_router_address: 20.0.0.46
+          - dest: 192.168.26.0/24
+            next_hops:
+            - interface: eth1/2
+              forward_router_address: 20.0.0.42
+            - interface: eth1/1
+              forward_router_address: 20.0.0.46
+          - dest: 192.168.28.0/24
+            next_hops:
+            - interface: eth1/2
+              forward_router_address: 20.0.0.42
+            - interface: eth1/1
+              forward_router_address: 20.0.0.46
+          - dest: 192.168.30.0/24
+            next_hops:
+            - interface: eth1/2
+              forward_router_address: 20.0.0.42
+            - interface: eth1/1
+              forward_router_address: 20.0.0.46
+          - dest: 192.168.32.0/24
+            next_hops:
+            - interface: eth1/2
+              forward_router_address: 20.0.0.42
+            - interface: eth1/1
+              forward_router_address: 20.0.0.46
