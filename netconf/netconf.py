@@ -36,7 +36,7 @@ def get_request(xmlstring):
 
     table = [] 
 
-    print(nodes["name"] + "(" + node_interfaces[0]["ethernet"]["state"].get("mac-address") + ")")
+    print(node["name"] + "(" + node_interfaces[0]["ethernet"]["state"].get("mac-address") + ")")
     for idx, interface in enumerate(node_interfaces):
          inside_table = []
          table.append(inside_table)
@@ -88,7 +88,7 @@ xml_filter = """
 
 if node == nodes.core:
     for i in range(0, 4):
-        node=nodes.core[i+1]
+        node=nodes.core[i]
         get_request(xml_filter)
 else:
     get_request(xml_filter)
