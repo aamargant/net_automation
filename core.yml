@@ -358,7 +358,7 @@
               forward_router_address: 20.0.0.17
             - interface: eth1/5
               forward_router_address: 20.0.0.25
-         - dest: 192.168.18.0/24
+          - dest: 192.168.18.0/24
             next_hops:
             - interface: eth1/2
               forward_router_address: 20.0.0.117
@@ -568,7 +568,7 @@
               forward_router_address: 20.0.0.105
             - interface: eth1/3
               forward_router_address: 20.0.0.113
-         - dest: 192.168.18.0/24
+          - dest: 192.168.18.0/24
             next_hops:
             - interface: eth1/8
               forward_router_address: 20.0.0.77
