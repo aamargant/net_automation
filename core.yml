@@ -3,6 +3,16 @@
 - name: Configure Core Group
   hosts: core
   tasks:
+  
+  - name: Enable RESTCONF
+    nxos_feature:
+      feature: restconf   
+      state: enabled
+      
+  - name: Enable NETCONF
+    nxos_feature:
+      feature: netconf  
+      state: enabled
 
 #################################
 ### Configure core1 interfaces ###
