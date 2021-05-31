@@ -83,6 +83,9 @@ xml_filter = """
                 <interface>
                     <name>eth1/8</name>
                </interface>
+               <interface>
+                    <name>eth1/9</name>
+               </interface>
             </interfaces>
      """
 
