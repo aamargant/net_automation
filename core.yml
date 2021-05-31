@@ -13,6 +13,11 @@
     nxos_feature:
       feature: netconf  
       state: enabled
+      
+  - name: Enable Bash-Shell
+    nxos_feature:
+      feature: bash-shell 
+      state: enabled
 
 #################################
 ### Configure core1 interfaces ###
