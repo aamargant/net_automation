@@ -92,20 +92,32 @@
       - name: Ethernet1/7
         mode: trunk 
       
-  - name: Configure interfaces to layer 3
-    cisco.nxos.nxos_interfaces:
-      config:
-      - name: Ethernet1/1
-        enabled: true
-        mode: layer3
-      - name: Ethernet1/2
-        enabled: true
-        mode: layer3
-       
       
 - name: Configure individual vlans and hsrp on dist1
   hosts: dist1
   tasks:  
+  
+  - name: Configure interfaces to layer 3 and setting descriptions
+    cisco.nxos.nxos_interfaces:
+      config:
+      - name: Ethernet1/1
+        description: Dist1 to Core1 interface
+        enabled: true
+        mode: layer3
+      - name: Ethernet1/2
+        description: Dist1 to Core4 interface
+        enabled: true
+        mode: layer3
+      - name: Ethernet1/3
+        description: Dist1 to Access1 interface
+      - name: Ethernet1/4
+        description: Dist1 to Access2 interface
+      - name: Ethernet1/5
+        description: Dist1 to Access3 interface
+      - name: Ethernet1/6
+        description: Dist1 to Access4 interface
+      - name: Ethernet1/7
+        description: Dist1 to Dist2 interface
             
   - name: Configure VLANs and static routes
     cisco.nxos.nxos_l3_interfaces:
