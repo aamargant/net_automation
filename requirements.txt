@@ -5,3 +5,4 @@ requests
 ncclient
 xmltodict
 tabulate
+pexpect
