@@ -30,7 +30,7 @@
       feature: hsrp
       state: enabled
       
-   - name: Enable RESTCONF
+  - name: Enable RESTCONF
     nxos_feature:
       feature: restconf   
       state: enabled
