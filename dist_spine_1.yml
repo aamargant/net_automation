@@ -1,6 +1,6 @@
 ---
 
-- name: Configure distribution layer spine '1'
+- name: Configure distribution layer spine "1"
   hosts: dist_spine_1 
   tasks:
   
