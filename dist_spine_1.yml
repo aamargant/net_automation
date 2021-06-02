@@ -3,23 +3,7 @@
 - name: Configure distribution layer spine 1
   hosts: dist_spine_1 
   tasks:
-
-  - name: Create VLANs
-    cisco.nxos.nxos_vlans:
-      config:
-       - name: vlan2         
-         vlan_id: 2
-         state: active
-       - name: vlan4
-         vlan_id: 4
-         state: active
-       - name: vlan6
-         vlan_id: 6
-         state: active
-       - name: vlan8
-         vlan_id: 8
-         state: active
-
+  
   - name: Enable interface-vlan
     nxos_feature:
       feature: interface-vlan    
@@ -57,6 +41,22 @@
   - name: Installing netconf configuration rpm package
     cisco.nxos.nxos_rpm:
       pkg: mtx-openconfig-all-1.0.0.0-9.2.3.lib32_n9000.rpm
+
+  - name: Create VLANs
+    cisco.nxos.nxos_vlans:
+      config:
+       - name: vlan2         
+         vlan_id: 2
+         state: active
+       - name: vlan4
+         vlan_id: 4
+         state: active
+       - name: vlan6
+         vlan_id: 6
+         state: active
+       - name: vlan8
+         vlan_id: 8
+         state: active
 
   - name: Enable vlan 2
     cisco.nxos.nxos_interface:
