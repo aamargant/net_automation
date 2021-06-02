@@ -24,8 +24,13 @@
     nxos_feature:
       feature: interface-vlan    
       state: enabled
-     
-  - name: Enable RESTCONF
+      
+  - name: Enable HSRP
+    nxos_feature:
+      feature: hsrp
+      state: enabled
+      
+   - name: Enable RESTCONF
     nxos_feature:
       feature: restconf   
       state: enabled
@@ -35,10 +40,23 @@
       feature: netconf  
       state: enabled
       
-  - name: Enable HSRP
+  - name: Enable Bash-Shell
     nxos_feature:
-      feature: hsrp
+      feature: bash-shell 
       state: enabled
+      
+  - name: Copying netconf configuration package from Devbox to local machine
+    cisco.nxos.nxos_file_copy:
+      file_pull: true
+      remote_file: /home/developer/cml_ansible/mtx-openconfig-all-1.0.0.0-9.2.3.lib32_n9000.rpm
+      remote_scp_server: 10.10.20.50
+      remote_scp_server_user: developer
+      remote_scp_server_password: C1sco12345
+      vrf: management
+
+  - name: Installing netconf configuration rpm package
+    cisco.nxos.nxos_rpm:
+      pkg: mtx-openconfig-all-1.0.0.0-9.2.3.lib32_n9000.rpm
 
   - name: Enable vlan 2
     cisco.nxos.nxos_interface:
