@@ -1,6 +1,6 @@
 ---
 
-- name: Configure distribution layer spine "1"
+- name: Configure distribution layer spine 1
   hosts: dist_spine_1 
   tasks:
   
@@ -58,22 +58,22 @@
          vlan_id: 8
          state: active
 
-  - name: Enable vlan '2'
+  - name: Enable vlan 2
     cisco.nxos.nxos_interface:
       name: vlan 2
       admin_state: up
 
-  - name: Enable vlan '4'
+  - name: Enable vlan 4
     cisco.nxos.nxos_interface: 
       name: vlan 4
       admin_state: up
 
-  - name: Enable vlan '6'
+  - name: Enable vlan 6
     cisco.nxos.nxos_interface:    
       name: vlan 6
       admin_state: up
 
-  - name: Enable vlan '8'
+  - name: Enable vlan 8
     cisco.nxos.nxos_interface:
       name: vlan 8
       admin_state: up
@@ -97,7 +97,7 @@
   hosts: dist1
   tasks:  
   
-  - name: Configure interfaces to layer '3' and setting descriptions
+  - name: Configure interfaces to layer 3 and setting descriptions
     cisco.nxos.nxos_interfaces:
       config:
       - name: Ethernet1/1
@@ -141,15 +141,15 @@
         ipv4:
           - address: 20.0.0.5/30
           
-  - name: Configure HRSP vlan '2'
+  - name: Configure HRSP vlan 2
     cisco.nxos.nxos_hsrp:
-      group: 2
+      group: "2"
       vip: 192.168.2.1
-      priority: 120
+      priority: "120"
       interface: vlan 2
       preempt: enabled
       
-  - name: Configure HRSP vlan '4'
+  - name: Configure HRSP vlan 4
     cisco.nxos.nxos_hsrp:
       group: 4
       vip: 192.168.4.1
@@ -157,7 +157,7 @@
       interface: vlan 4
       preempt: enabled
 
-  - name: Configure HRSP vlan '6'
+  - name: Configure HRSP vlan 6
     cisco.nxos.nxos_hsrp:
       group: 6
       vip: 192.168.6.1
@@ -165,7 +165,7 @@
       interface: vlan 6
       preempt: enabled
       
-  - name: Configure HRSP vlan '8'
+  - name: Configure HRSP vlan 8
     cisco.nxos.nxos_hsrp:
       group: 8
       vip: 192.168.8.1
@@ -269,7 +269,7 @@
   hosts: dist2
   tasks:
   
-  - name: Configure interfaces to layer '3' and setting descriptions
+  - name: Configure interfaces to layer 3 and setting descriptions
     cisco.nxos.nxos_interfaces:
       config:
       - name: Ethernet1/1
