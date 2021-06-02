@@ -4,22 +4,6 @@
   hosts: dist_spine_2
   tasks:
 
-  - name: Create VLANs
-    cisco.nxos.nxos_vlans:
-      config:
-       - name: vlan10        
-         vlan_id: 10
-         state: active
-       - name: vlan12
-         vlan_id: 12
-         state: active
-       - name: vlan14
-         vlan_id: 14
-         state: active
-       - name: vlan16
-         vlan_id: 16
-         state: active
-
   - name: Enable interface-vlan
     nxos_feature:
       feature: interface-vlan    
@@ -52,6 +36,22 @@
   - name: Installing netconf configuration rpm package
     cisco.nxos.nxos_rpm:
       pkg: mtx-openconfig-all-1.0.0.0-9.2.3.lib32_n9000.rpm
+      
+  - name: Create VLANs
+    cisco.nxos.nxos_vlans:
+      config:
+       - name: vlan10        
+         vlan_id: 10
+         state: active
+       - name: vlan12
+         vlan_id: 12
+         state: active
+       - name: vlan14
+         vlan_id: 14
+         state: active
+       - name: vlan16
+         vlan_id: 16
+         state: active
       
   - name: Enable HSRP
     nxos_feature:
@@ -91,21 +91,34 @@
         mode: trunk 
       - name: Ethernet1/7
         mode: trunk 
-        
-  - name: Configure interfaces to layer 3
-    cisco.nxos.nxos_interfaces:
-      config:
-      - name: Ethernet1/1
-        enabled: true
-        mode: layer3
-      - name: Ethernet1/2
-        enabled: true
-        mode: layer3    
-        
+     
 
 - name: Configure individual vlans and hsrp on dist3 and static routes
   hosts: dist3
   tasks:  
+  
+  - name: Configure interfaces to layer 3 and setting descriptions
+    cisco.nxos.nxos_interfaces:
+      config:
+      - name: Ethernet1/1
+        description: Dist3 to Core1 interface
+        enabled: true
+        mode: layer3
+      - name: Ethernet1/2
+        description: Dist3 to Core2 interface
+        enabled: true
+        mode: layer3
+      - name: Ethernet1/3
+        description: Dist3 to Access5 interface
+      - name: Ethernet1/4
+        description: Dist3 to Access6 interface
+      - name: Ethernet1/5
+        description: Dist3 to Access7 interface
+      - name: Ethernet1/6
+        description: Dist3 to Access8 interface
+      - name: Ethernet1/7
+        description: Dist3 to Dist4 interface
+        
             
   - name: Configure VLANs and static routes
     cisco.nxos.nxos_l3_interfaces:
@@ -255,7 +268,29 @@
       
 - name: Configure individual vlans and hsrp on dist4
   hosts: dist4
-  tasks:  
+  tasks:
+  
+  - name: Configure interfaces to layer 3 and setting descriptions
+    cisco.nxos.nxos_interfaces:
+      config:
+      - name: Ethernet1/1
+        description: Dist4 to Core1 interface
+        enabled: true
+        mode: layer3
+      - name: Ethernet1/2
+        description: Dist4 to Core2 interface
+        enabled: true
+        mode: layer3
+      - name: Ethernet1/3
+        description: Dist4 to Access5 interface
+      - name: Ethernet1/4
+        description: Dist4 to Access6 interface
+      - name: Ethernet1/5
+        description: Dist4 to Access7 interface
+      - name: Ethernet1/6
+        description: Dist4 to Access8 interface
+      - name: Ethernet1/7
+        description: Dist4 to Dist3 interface
             
   - name: Configure VLANs and static routes
     cisco.nxos.nxos_l3_interfaces:
