@@ -4,13 +4,6 @@
   hosts: dist_spine_3
   tasks:
 
-  - name: Create VLANs
-    cisco.nxos.nxos_vlans:
-      config:
-       - name: vlan250        
-         vlan_id: 250
-         state: active
-
   - name: Enable interface-vlan
     nxos_feature:
       feature: interface-vlan    
@@ -53,6 +46,13 @@
     cisco.nxos.nxos_interface:
       name: vlan 250
       admin_state: up
+      
+  - name: Create VLANs
+    cisco.nxos.nxos_vlans:
+      config:
+       - name: vlan250        
+         vlan_id: 250
+         state: active
 
   - name: Configure trunk switchports
     cisco.nxos.nxos_l2_interfaces:   
