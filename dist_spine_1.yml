@@ -143,9 +143,9 @@
           
   - name: Configure HRSP vlan 2
     cisco.nxos.nxos_hsrp:
-      group: "2"
+      group: 2
       vip: 192.168.2.1
-      priority: "120"
+      priority: 120
       interface: vlan 2
       preempt: enabled
       
