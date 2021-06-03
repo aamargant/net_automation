@@ -78,4 +78,5 @@ echo "$ python topologySetUp.py"
 echo""
 python topologySetUp.py
 
+echo ""
 echo "########## Ready ##########"
