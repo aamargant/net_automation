@@ -25,8 +25,7 @@ def createTopologyFromFile(token):
                    'Authorization': token
                    }
         print("")
-        nom_lab = input("Escriu nom de la topologia: ")
-        response = requests.request("POST", baseUrl + "/import?title="+ nom_lab, headers=headers, data=payload,
+        response = requests.request("POST", baseUrl + "/import?title=net_automation_aamargant", headers=headers, data=payload,
                                     verify=False)
         if response.text.__contains__("id"):
             return "Success\n" + response.text
