@@ -27,7 +27,7 @@
   - name: Copying netconf configuration package from Devbox to local machine
     cisco.nxos.nxos_file_copy:
       file_pull: true
-      remote_file: /home/developer/cml_ansible/mtx-openconfig-all-1.0.0.0-9.2.3.lib32_n9000.rpm
+      remote_file: /home/developer/net_automation_aamargant/mtx-openconfig-all-1.0.0.0-9.2.3.lib32_n9000.rpm
       remote_scp_server: 10.10.20.50
       remote_scp_server_user: developer
       remote_scp_server_password: C1sco12345
