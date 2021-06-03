@@ -90,7 +90,7 @@
       - name: Ethernet1/6
         mode: trunk 
       - name: Ethernet1/7
-        mode: trunk   
+        mode: trunk 
         
 
 - name: Configure individual vlans and hsrp on dist11 and static routes
