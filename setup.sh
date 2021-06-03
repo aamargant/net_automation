@@ -14,17 +14,17 @@ echo""
 echo "#########################"
 echo "# Cloning repository... #"
 echo "#########################"
-echo "$ git clone https://aamargant:Sp18Jv93@github.com/aamargant/cml_ansible.git"
+echo "$ git clone https://aamargant:Sp18Jv93@github.com/aamargant/cd net_automation_aamargant.git"
 echo""
-git clone https://aamargant:Sp18Jv93@github.com/aamargant/cml_ansible.git
+git clone https://aamargant:Sp18Jv93@github.com/aamargant/cd net_automation_aamargant.git
 
 echo""
 echo "##############################"
 echo "# Navigating to directory... #"
 echo "##############################"
-echo "$ cd cml_ansible"
+echo "$ cd net_automation_aamargant"
 echo""
-cd cml_ansible
+cd net_automation_aamargant
 
 echo""
 echo "#############################################"
