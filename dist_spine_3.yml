@@ -41,11 +41,6 @@
     nxos_feature:
       feature: hsrp
       state: enabled
-
-  - name: Enable vlan 250
-    cisco.nxos.nxos_interface:
-      name: vlan 250
-      admin_state: up
       
   - name: Create VLANs
     cisco.nxos.nxos_vlans:
@@ -53,6 +48,11 @@
        - name: vlan250        
          vlan_id: 250
          state: active
+         
+  - name: Enable vlan 250
+    cisco.nxos.nxos_interface:
+      name: vlan 250
+      admin_state: up
 
   - name: Configure trunk switchports
     cisco.nxos.nxos_l2_interfaces:   
@@ -64,20 +64,28 @@
       - name: Ethernet1/5
         mode: trunk
         
-  - name: Configure interfaces to layer 3
-    cisco.nxos.nxos_interfaces:
-      config:
-      - name: Ethernet1/1
-        enabled: true
-        mode: layer3
-      - name: Ethernet1/2
-        enabled: true
-        mode: layer3    
-        
 
 - name: Configure individual vlans and hsrp on dist5 and static routes
   hosts: dist5
-  tasks:  
+  tasks:
+  
+  - name: Configure interfaces to layer 3 and setting descriptions
+    cisco.nxos.nxos_interfaces:
+      config:
+      - name: Ethernet1/1
+        description: Dist5 to Core2 interface
+        enabled: true
+        mode: layer3
+      - name: Ethernet1/2
+        description: Dist5 to Core3 interface
+        enabled: true
+        mode: layer3
+      - name: Ethernet1/3
+        description: Dist5 to Access9 interface
+      - name: Ethernet1/4
+        description: Dist5 to Access10 interface
+      - name: Ethernet1/5
+        description: Dist5 to Access6 interface 
             
   - name: Configure VLANs and static routes
     cisco.nxos.nxos_l3_interfaces:
@@ -212,6 +220,24 @@
 - name: Configure individual vlans and hsrp on dist6
   hosts: dist6
   tasks:  
+  
+  - name: Configure interfaces to layer 3 and setting descriptions
+    cisco.nxos.nxos_interfaces:
+      config:
+      - name: Ethernet1/1
+        description: Dist6 to Core2 interface
+        enabled: true
+        mode: layer3
+      - name: Ethernet1/2
+        description: Dist6 to Core3 interface
+        enabled: true
+        mode: layer3
+      - name: Ethernet1/3
+        description: Dist6 to Access9 interface
+      - name: Ethernet1/4
+        description: Dist6 to Access10 interface
+      - name: Ethernet1/5
+        description: Dist6 to Access5 interface 
             
   - name: Configure VLANs and static routes
     cisco.nxos.nxos_l3_interfaces:
