@@ -72,7 +72,7 @@ wget https://devhub.cisco.com/artifactory/open-nxos-agents/9.2.3/x86_64/mtx-open
 
 echo""
 echo "########################################"
-echo "# Importing topology to cml sandbox... #"
+echo "# Importing topology into cml sandbox... #"
 echo "########################################"
 echo "$ python topologySetUp.py"
 echo""
