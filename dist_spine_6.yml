@@ -3,6 +3,20 @@
 - name: Configure distribution layer spine 6
   hosts: dist_spine_6
   tasks:
+  
+  - name: Configure trunk switchports
+    cisco.nxos.nxos_l2_interfaces:   
+      config:
+      - name: Ethernet1/3
+        mode: trunk  
+      - name: Ethernet1/4
+        mode: trunk
+      - name: Ethernet1/5
+        mode: trunk
+      - name: Ethernet1/6
+        mode: trunk 
+      - name: Ethernet1/7
+        mode: trunk
 
   - name: Enable interface-vlan
     nxos_feature:
@@ -78,20 +92,6 @@
       name: vlan 32
       admin_state: up
 
-  - name: Configure trunk switchports
-    cisco.nxos.nxos_l2_interfaces:   
-      config:
-      - name: Ethernet1/3
-        mode: trunk  
-      - name: Ethernet1/4
-        mode: trunk
-      - name: Ethernet1/5
-        mode: trunk
-      - name: Ethernet1/6
-        mode: trunk 
-      - name: Ethernet1/7
-        mode: trunk 
-        
 
 - name: Configure individual vlans and hsrp on dist11 and static routes
   hosts: dist11
