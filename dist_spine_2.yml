@@ -24,6 +24,18 @@
       feature: bash-shell 
       state: enabled
       
+  - name: Enable NXAPI
+    nxos_feature:
+      feature: nxapi
+      state: enabled
+
+  - name: Set ports NXAPI
+    cisco.nxos.nxos_nxapi:
+      enable_http: true
+      enable_https: true
+      http_port: 80
+      https_port: 443
+      
   - name: Copying netconf configuration package from Devbox to local machine
     cisco.nxos.nxos_file_copy:
       file_pull: true
