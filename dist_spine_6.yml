@@ -156,7 +156,7 @@
       vip: 192.168.28.1
       priority: 100
       interface: vlan 28
-      preempt: enable
+      preempt: enabled
   - name: Configure HRSP vlan 30
     cisco.nxos.nxos_hsrp:
       group: 30
