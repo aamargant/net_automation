@@ -19,6 +19,18 @@
       feature: bash-shell 
       state: enabled
       
+  - name: Enable NXAPI
+    nxos_feature:
+      feature: nxapi
+      state: enabled
+
+  - name: Set ports NXAPI
+    cisco.nxos.nxos_nxapi:
+      enable_http: false
+      https_port: 9443
+      https: yes
+      enable_sandbox: no
+      
   - name: initiate file copy from device
     cisco.nxos.nxos_file_copy:
       file_pull: true
