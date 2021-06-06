@@ -3,6 +3,7 @@
 - name: Configure Fireall-1
   hosts: firewall-1
   become: yes
+  gather_facts: no
   tasks:
 
   - name: Configure GigabitEthernet0/0  
