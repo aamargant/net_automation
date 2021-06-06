@@ -27,7 +27,7 @@
   - name: Configure static route
     cisco.asa.asa_config:
       lines:
-      - route outside 0.0.0.0 0.0.0.0 209.165.200.225
+      - route outside 0.0.0.0 0.0.0.0 200.0.1.253
 
   - name: Configure inside net
     cisco.asa.asa_config:
