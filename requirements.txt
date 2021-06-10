@@ -6,3 +6,4 @@ ncclient
 xmltodict
 tabulate
 pexpect
+pyang
