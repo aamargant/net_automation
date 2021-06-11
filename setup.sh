@@ -55,14 +55,6 @@ echo""
 ansible-galaxy collection install -r requirements.yml -p ./
 
 echo""
-echo "######################################"
-echo "# Setting up ansible requirements... #"
-echo "######################################"
-echo "$ ansible-galaxy collection install -r requirements.yml -p ./"
-echo""
-ansible-galaxy collection install -r requirements.yml -p ./
-
-echo""
 echo "#########################################"
 echo "# Downloading netconf configurations... #"
 echo "#########################################"
