@@ -53,7 +53,6 @@ dist5
 dist6
 
 [dist_spine_4:children]
-dist7
 dist8
 
 [dist_spine_5:children]
@@ -146,10 +145,7 @@ access20
 10.10.20.185 
 
 [dist6]
-10.10.20.186 
-
-[dist7]
-10.10.20.187 
+10.10.20.186
 
 [dist8]
 10.10.20.188 
