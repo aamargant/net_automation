@@ -497,7 +497,7 @@
         description: Core3 to Dist10 interface
         mode: layer3
       - name: Ethernet1/9
-        description: Core2 to Dist9 interface
+        description: Core3 to Dist9 interface
         mode: layer3
 
   - name: Configure layer 3 interfaces ip address
