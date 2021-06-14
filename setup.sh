@@ -71,6 +71,14 @@ echo""
 git clone https://github.com/openconfig/public.git
 
 echo""
+echo "####################################################"
+echo "# Cloning YangModels YAML data model repository... #"
+echo "####################################################"
+echo "$ agit clone https://github.com/openconfig/public.git"
+echo""
+git clone https://github.com/YangModels/yang.git
+
+echo""
 echo "########################################"
 echo "# Importing topology into cml sandbox... #"
 echo "########################################"
