@@ -63,9 +63,9 @@ echo""
 wget https://devhub.cisco.com/artifactory/open-nxos-agents/9.2.3/x86_64/mtx-openconfig-all-1.0.0.0-9.2.3.lib32_n9000.rpm
 
 echo""
-echo "#########################################"
-echo "# Cloning OpenConfig YAML data model... #"
-echo "#########################################"
+echo "####################################################"
+echo "# Cloning OpenConfig YAML data model repository... #"
+echo "####################################################"
 echo "$ agit clone https://github.com/openconfig/public.git"
 echo""
 git clone https://github.com/openconfig/public.git
