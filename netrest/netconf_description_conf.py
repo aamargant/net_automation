@@ -14,7 +14,6 @@ def get_request(xml_filter, node):
         netconf_reply = device.edit_config(xml_filter, target = 'running')
 
 def setup():
-    
     node = check_node.check_input_node(sys)
     xml_filter = open("filter_desc_conf.xml").read()
 
