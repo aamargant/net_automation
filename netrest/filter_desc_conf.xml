@@ -1,0 +1,10 @@
+<config>
+    <interfaces xmlns="http://openconfig.net/yang/interfaces">
+                <interface>
+                <name>eth1/1</name>
+                    <config>
+                        <description>new description</description>
+                    </config>
+                </interface>
+    </interfaces>
+</config>
