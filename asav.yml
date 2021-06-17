@@ -29,7 +29,35 @@
       lines:
       - route outside 0.0.0.0 0.0.0.0 200.0.1.2
 
- - name: Configure inside net VLAN10
+  - name: Configure inside net VLAN2
+    cisco.asa.asa_config:
+      lines:
+      - subnet 192.168.2.0 255.255.255.0
+      - nat (inside,outside) dynamic interface
+      parents: object network INSIDE-NET-VLAN2
+  
+  - name: Configure inside net VLAN4
+    cisco.asa.asa_config:
+      lines:
+      - subnet 192.168.4.0 255.255.255.0
+      - nat (inside,outside) dynamic interface
+      parents: object network INSIDE-NET-VLAN4
+  
+  - name: Configure inside net VLAN6
+    cisco.asa.asa_config:
+      lines:
+      - subnet 192.168.6.0 255.255.255.0
+      - nat (inside,outside) dynamic interface
+      parents: object network INSIDE-NET-VLAN6
+
+  - name: Configure inside net VLAN8
+    cisco.asa.asa_config:
+      lines:
+      - subnet 192.168.8.0 255.255.255.0
+      - nat (inside,outside) dynamic interface
+      parents: object network INSIDE-NET-VLAN8
+
+  - name: Configure inside net VLAN10
     cisco.asa.asa_config:
       lines:
       - subnet 192.168.10.0 255.255.255.0
@@ -42,7 +70,77 @@
       - subnet 192.168.12.0 255.255.255.0
       - nat (inside,outside) dynamic interface
       parents: object network INSIDE-NET-VLAN12
+      
+  - name: Configure inside net VLAN14
+    cisco.asa.asa_config:
+      lines:
+      - subnet 192.168.14.0 255.255.255.0
+      - nat (inside,outside) dynamic interface
+      parents: object network INSIDE-NET-VLAN14
+      
+  - name: Configure inside net VLAN16
+    cisco.asa.asa_config:
+      lines:
+      - subnet 192.168.16.0 255.255.255.0
+      - nat (inside,outside) dynamic interface
+      parents: object network INSIDE-NET-VLAN16
 
+  - name: Configure inside net VLAN18
+    cisco.asa.asa_config:
+      lines:
+      - subnet 192.168.18.0 255.255.255.0
+      - nat (inside,outside) dynamic interface
+      parents: object network INSIDE-NET-VLAN18
+
+  - name: Configure inside net VLAN20
+    cisco.asa.asa_config:
+      lines:
+      - subnet 192.168.20.0 255.255.255.0
+      - nat (inside,outside) dynamic interface
+      parents: object network INSIDE-NET-VLAN20
+      
+  - name: Configure inside net VLAN22
+    cisco.asa.asa_config:
+      lines:
+      - subnet 192.168.22.0 255.255.255.0
+      - nat (inside,outside) dynamic interface
+      parents: object network INSIDE-NET-VLAN22
+      
+  - name: Configure inside net VLAN24
+    cisco.asa.asa_config:
+      lines:
+      - subnet 192.168.24.0 255.255.255.0
+      - nat (inside,outside) dynamic interface
+      parents: object network INSIDE-NET-VLAN24
+
+  - name: Configure inside net VLAN26
+    cisco.asa.asa_config:
+      lines:
+      - subnet 192.168.26.0 255.255.255.0
+      - nat (inside,outside) dynamic interface
+      parents: object network INSIDE-NET-VLAN26
+
+  - name: Configure inside net VLAN28
+    cisco.asa.asa_config:
+      lines:
+      - subnet 192.168.28.0 255.255.255.0
+      - nat (inside,outside) dynamic interface
+      parents: object network INSIDE-NET-VLAN28
+      
+  - name: Configure inside net VLAN30
+    cisco.asa.asa_config:
+      lines:
+      - subnet 192.168.30.0 255.255.255.0
+      - nat (inside,outside) dynamic interface
+      parents: object network INSIDE-NET-VLAN30
+      
+  - name: Configure inside net VLAN32
+    cisco.asa.asa_config:
+      lines:
+      - subnet 192.168.32.0 255.255.255.0
+      - nat (inside,outside) dynamic interface
+      parents: object network INSIDE-NET-VLAN32
+  
   - name: Configure icmp policy
     cisco.asa.asa_config:
       lines:
