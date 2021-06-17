@@ -60,17 +60,9 @@
         enabled: true
         mode: layer3  
       - name: Ethernet1/4
-        description: Dist8 to Firewall2 interface
-        enabled: true
-        mode: layer3
-      - name: Ethernet1/4
         description: Dist8 to Firewall1 interface
         enabled: true
         mode: layer3
-      - name: Ethernet1/4
-        description: Dist8 to Dist7 interface
-        enabled: true
-        mode: layer3  
   
   - name: Configure static routes
     cisco.nxos.nxos_l3_interfaces:
