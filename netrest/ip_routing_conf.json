@@ -1,0 +1,30 @@
+{
+  "ipv4-items": {
+    "inst-items": {
+      "dom-items": {
+        "Dom-list": {
+          "name": "default",
+          "rt-items": {
+            "Route-list": {
+              "prefix": "1.1.1.1",
+              "nh-items": {
+                "Nexthop-list": [
+                  {
+                    "nhIf": "eth1/1",
+                    "nhAddr": "2.2.2.2",
+                    "nhVrf": "default"
+                  },
+                  {
+                    "nhIf": "eth1/2",
+                    "nhAddr": "3.3.3.3",
+                    "nhVrf": "default"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
