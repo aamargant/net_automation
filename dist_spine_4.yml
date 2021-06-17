@@ -59,7 +59,7 @@
         description: Dist8 to Core3 interface
         enabled: true
         mode: layer3  
-      - name: Ethernet1/4
+      - name: Ethernet1/3
         description: Dist8 to Firewall1 interface
         enabled: true
         mode: layer3
@@ -73,7 +73,7 @@
       - name: Ethernet1/2
         ipv4:
           - address: 20.0.0.57/30
-      - name: Ethernet1/4
+      - name: Ethernet1/3
         ipv4:
           - address: 20.0.0.121/30
     
