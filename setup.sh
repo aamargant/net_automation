@@ -14,7 +14,7 @@ echo""
 echo "#########################"
 echo "# Cloning repository... #"
 echo "#########################"
-echo "$ git clone https://github.com/aamargant/cd net_automation_aamargant.git"
+echo "$ git clone https://github.com/aamargant/net_automation_aamargant.git"
 echo""
 git clone https://github.com/aamargant/net_automation_aamargant.git
 
