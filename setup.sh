@@ -64,7 +64,7 @@ wget https://devhub.cisco.com/artifactory/open-nxos-agents/9.2.3/x86_64/mtx-open
 
 echo""
 echo "####################################################"
-echo "# Cloning OpenConfig YAML data model repository... #"
+echo "# Cloning OpenConfig YNAG data model repository... #"
 echo "####################################################"
 echo "$ agit clone https://github.com/openconfig/public.git"
 echo""
