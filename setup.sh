@@ -55,9 +55,9 @@ echo""
 ansible-galaxy collection install -r requirements.yml -p ./
 
 echo""
-echo "#########################################"
-echo "# Downloading netconf configurations... #"
-echo "#########################################"
+echo "#############################################"
+echo "# Downloading OpenConfig YANG data model... #"
+echo "#############################################"
 echo "$ wget https://devhub.cisco.com/artifactory/open-nxos-agents/9.2.3/x86_64/mtx-openconfig-all-1.0.0.0-9.2.3.lib32_n9000.rpm"
 echo""
 wget https://devhub.cisco.com/artifactory/open-nxos-agents/9.2.3/x86_64/mtx-openconfig-all-1.0.0.0-9.2.3.lib32_n9000.rpm
