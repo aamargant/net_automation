@@ -64,7 +64,7 @@
          vlan_id: 20
          state: active
        - name: vlan22
-         vlan_id: 2
+         vlan_id: 22
          state: active
        - name: vlan24
          vlan_id: 24
