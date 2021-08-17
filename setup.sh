@@ -14,17 +14,17 @@ echo""
 echo "#########################"
 echo "# Cloning repository... #"
 echo "#########################"
-echo "$ git clone https://github.com/aamargant/net_automation_aamargant.git"
+echo "$ git clone https://github.com/aamargant/net_automation.git"
 echo""
-git clone https://github.com/aamargant/net_automation_aamargant.git
+git clone https://github.com/aamargant/net_automation.git
 
 echo""
 echo "##############################"
 echo "# Navigating to directory... #"
 echo "##############################"
-echo "$ cd net_automation_aamargant"
+echo "$ cd net_automation"
 echo""
-cd net_automation_aamargant
+cd net_automation
 
 echo""
 echo "#############################################"
