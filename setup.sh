@@ -7,7 +7,7 @@ echo "#####################"
 echo "$ LC_ALL=en_US"
 echo "$ export LC_ALL"
 echo""
-LC_ALL=en_US
+LC_ALL=en_US.UTF-8
 export LC_ALL
 
 echo""
