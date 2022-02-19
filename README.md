@@ -16,3 +16,4 @@ This project has consisted on the creation and desing of a multilayered architec
 - Wait until bash script finishes and select the net_automation network
 - Switch on the core, bridge and backend switches
 - Run `ansible-playbook core.yml` to configure the core switches
+- To run the python scrips go to netrest/ and run `python <python file> <switch name/group>`
