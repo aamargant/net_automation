@@ -13,6 +13,6 @@ This project has consisted on the creation and desing of a multilayered architec
 - Open a terminal session and make an SSH connection to the CentOS (Devbox) machine `ssh developer@10.10.20.50` and enter the password `C1sco12345`
 - Run `source <(curl https://raw.githubusercontent.com/aamargant/net_automation/master/setup.sh)`
 - Navigate to https://10.10.20.161
-- Wait unitl bash script finishes and select the net_automation network
+- Wait until bash script finishes and select the net_automation network
 - Switch on the core, bridge and backend switches
 - Run `ansible-playbook core.yml` to configure the core switches
