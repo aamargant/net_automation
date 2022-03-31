@@ -1,6 +1,6 @@
 # Description
 
-This project has consisted on the creation and desing of a multilayered architecture network with layer 3 NEXUS switch and the automation of the network protocols and interfaces (HSRP, VLANS, static routes,...) configuration with Ansible playbooks. In addition, the extraction of data within the network (packets and routes) is made with python scripts using the NETCONF and RESTCONF protocols targeting the YANG data models on the switches.
+This project has consisted on the creation and design of a multilayered architecture network with layer 3 NEXUS switch and the automation of the network protocols and interfaces (HSRP, VLANS, static routes,...) configuration with Ansible playbooks. In addition, the extraction of data within the network (packets and routes) is made with python scripts using the NETCONF and RESTCONF protocols targeting the YANG data models on the switches.
 
 # Prerequisites
 
